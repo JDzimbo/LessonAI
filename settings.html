@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - LessonAI</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            🌈 <span>LessonAI</span>
+        </div>
+
+        <nav>
+
+            <a href="homepage.html" class="nav-link">
+                🏠 <span>Dashboard</span>
+            </a>
+            <a href="quiz-generator.html" class="nav-link">
+    📝 <span>Quiz & Test</span>
+</a>
+ <a href="scheme-generator.html" class="nav-link">
+                📖 <span>Scheme of Work</span>
+            </a>
+
+
+            <a href="lesson-generator.html" class="nav-link">
+                ✨ <span>Generate Lesson</span>
+            </a>
+            <a href="lesson-plan-generator.html" class="nav-link">
+    📚 <span>Lesson Plan</span>
+</a>
+
+            <a href="my-lessons.html" class="nav-link">
+                📄 <span>My Lesson Notes</span>
+            </a>
+
+            <a href="history.html" class="nav-link">
+                🕘 <span>History</span>
+            </a>
+
+                <a href="pricing.html" class="nav-link active">
+                    💰 <span>Pricing</span>
+                </a>
+
+            <a href="settings.html" class="nav-link active">
+                ⚙️ <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <a href="login.html" class="logout">
+            🚪 <span>Logout</span>
+        </a>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <header class="top-header">
+
+            <div>
+                <h1>Settings</h1>
+                <p>Manage your LessonAI account and preferences.</p>
+            </div>
+
+            <div class="profile">
+                <div class="profile-circle">T</div>
+                <span>Teacher</span>
+            </div>
+
+        </header>
+
+
+        <!-- PROFILE SETTINGS -->
+        <section class="settings-card">
+
+            <div class="card-title">
+                <h2>Profile Information</h2>
+                <p>Update your personal information.</p>
+            </div>
+
+            <form id="profileForm">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+
+                        <input
+                            type="text"
+                            id="firstName"
+                            value="Teacher"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+
+                        <input
+                            type="text"
+                            id="lastName"
+                            value=""
+                            placeholder="Enter last name"
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="teacher@example.com"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="school">School Name</label>
+
+                    <input
+                        type="text"
+                        id="school"
+                        placeholder="Enter your school name"
+                    >
+
+                </div>
+
+
+                <button type="submit" class="save-button">
+                    💾 Save Changes
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- LESSON PREFERENCES -->
+        <section class="settings-card">
+
+            <div class="card-title">
+
+                <h2>Lesson Preferences</h2>
+
+                <p>
+                    Choose your preferred lesson note format.
+                </p>
+
+            </div>
+
+
+            <div class="preference">
+
+                <div>
+                    <h3>Include Learning Objectives</h3>
+
+                    <p>
+                        Automatically include learning objectives
+                        in generated lesson notes.
+                    </p>
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="objectives"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="preference">
+
+                <div>
+                    <h3>Include Evaluation</h3>
+
+                    <p>
+                        Add evaluation questions to lesson notes.
+                    </p>
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="evaluation"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="preference">
+
+                <div>
+                    <h3>Include Assignment</h3>
+
+                    <p>
+                        Add a short student assignment at the end.
+                    </p>
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="assignment"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- SECURITY -->
+        <section class="settings-card">
+
+            <div class="card-title">
+
+                <h2>Security</h2>
+
+                <p>
+                    Manage your account security.
+                </p>
+
+            </div>
+
+
+            <div class="security-row">
+
+                <div>
+
+                    <h3>Password</h3>
+
+                    <p>
+                        Change your account password.
+                    </p>
+
+                </div>
+
+                <a
+                    href="forgot-password.html"
+                    class="change-button"
+                >
+                    Change Password
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- DANGER ZONE -->
+        <section class="danger-card">
+
+            <h2>Account</h2>
+
+            <p>
+                Log out of your LessonAI account.
+            </p>
+
+            <a href="login.html" class="logout-button">
+                🚪 Log Out
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        const profileForm =
+            document.getElementById("profileForm");
+
+
+        profileForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+                alert("Your profile has been saved successfully.");
+
+            }
+        );
+
+
+        const switches =
+            document.querySelectorAll(
+                ".switch input"
+            );
+
+
+        switches.forEach(function(toggle) {
+
+            toggle.addEventListener(
+                "change",
+                function() {
+
+                    console.log(
+                        toggle.id +
+                        ": " +
+                        toggle.checked
+                    );
+
+                }
+            );
+
+        });
+
+    </script>
+
+</body>
+</html>

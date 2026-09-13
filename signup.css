@@ -1,0 +1,293 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    min-height: 100vh;
+}
+
+.signup-container {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.signup-info {
+    width: 50%;
+    background: #2563eb;
+    color: white;
+    padding: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.logo span {
+    color: #bfdbfe;
+}
+
+.signup-info h1 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.signup-info p {
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 500px;
+    color: #e0ecff;
+}
+
+.features {
+    margin-top: 35px;
+}
+
+.features div {
+    margin-bottom: 18px;
+    font-size: 16px;
+}
+
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.signup-box {
+    width: 50%;
+    background: white;
+    padding: 45px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signup-box h2 {
+    font-size: 32px;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.input-group {
+    margin-bottom: 16px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 7px;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    background: white;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* =========================
+   TERMS
+========================= */
+
+.terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 10px 0 15px;
+}
+
+.terms input {
+    margin-top: 3px;
+}
+
+.terms label {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.terms a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   ERROR MESSAGE
+========================= */
+
+.error-message {
+    color: #dc2626;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+
+/* =========================
+   SIGN UP BUTTON
+========================= */
+
+.signup-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.signup-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================
+   LOGIN LINK
+========================= */
+
+.login-link {
+    text-align: center;
+    margin-top: 22px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.login-link a {
+    color: #2563eb;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   FORGOT PASSWORD
+========================= */
+
+.forgot-link {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.forgot-link a {
+    color: #6b7280;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.forgot-link a:hover {
+    color: #2563eb;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .signup-container {
+        flex-direction: column;
+    }
+
+    .signup-info {
+        width: 100%;
+        padding: 40px 30px;
+    }
+
+    .signup-info h1 {
+        font-size: 32px;
+    }
+
+    .signup-info p {
+        font-size: 15px;
+    }
+
+    .features {
+        margin-top: 25px;
+    }
+
+    .signup-info {
+        min-height: auto;
+    }
+
+    .signup-box {
+        width: 100%;
+        padding: 40px 30px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .signup-info {
+        padding: 30px 20px;
+    }
+
+    .signup-info h1 {
+        font-size: 27px;
+    }
+
+    .logo {
+        margin-bottom: 30px;
+        font-size: 28px;
+    }
+
+    .signup-box {
+        padding: 30px 20px;
+    }
+
+    .signup-box h2 {
+        font-size: 27px;
+    }
+
+}

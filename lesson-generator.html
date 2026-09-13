@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Generate Lesson - LessonAI</title>
+
+    <link rel="stylesheet" href="lesson-generator.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            🌈 <span>LessonAI</span>
+        </div>
+
+        <nav>
+
+            <a href="homepage.html" class="nav-link">
+                🏠 <span>Dashboard</span>
+            </a>
+            <a href="quiz-generator.html" class="nav-link">
+    📝 <span>Quiz & Test</span>
+</a>
+ <a href="scheme-generator.html" class="nav-link">
+                📖 <span>Scheme of Work</span>
+            </a>
+
+            <a href="lesson-generator.html" class="nav-link active">
+                ✨ <span>Generate Lesson</span>
+            </a>
+            <a href="lesson-plan-generator.html" class="nav-link">
+    📚 <span>Lesson Plan</span>
+</a>
+            <a href="my-lessons.html" class="nav-link">
+                📄 <span>My Lesson Notes</span>
+            </a>
+
+            <a href="history.html" class="nav-link">
+                🕘 <span>History</span>
+            </a>
+
+                <a href="pricing.html" class="nav-link active">
+                    💰 <span>Pricing</span>
+                </a>
+
+            <a href="settings.html" class="nav-link">
+                ⚙️ <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <a href="login.html" class="logout">
+            🚪 <span>Logout</span>
+        </a>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <header class="top-header">
+
+            <div>
+                <h1>Generate Lesson Note</h1>
+
+                <p>
+                    Create a professional lesson note in seconds.
+                </p>
+            </div>
+
+
+            <div class="profile">
+
+                <div class="profile-circle">
+                    T
+                </div>
+
+                <span>Teacher</span>
+
+            </div>
+
+        </header>
+
+
+        <!-- GENERATOR -->
+        <div class="generator-container">
+
+
+            <!-- LEFT SIDE -->
+            <section class="form-card">
+
+                <h2>Lesson Information</h2>
+
+                <p class="description">
+                    Enter the information below to create your lesson note.
+                </p>
+
+
+                <form id="lessonForm">
+
+
+                    <!-- SUBJECT -->
+                    <label for="subject">
+                        Subject *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="subject"
+                        placeholder="e.g. Mathematics"
+                        required
+                    >
+
+
+                    <!-- CLASS -->
+                    <label for="className">
+                        Class *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="className"
+                        placeholder="e.g. Basic 5"
+                        required
+                    >
+
+
+                    <!-- TOPIC -->
+                    <label for="topic">
+                        Lesson Topic *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="topic"
+                        placeholder="e.g. Fractions"
+                        required
+                    >
+
+
+                    <!-- TERM AND DURATION -->
+                    <div class="two-columns">
+
+
+                        <div>
+
+                            <label for="term">
+                                Term
+                            </label>
+
+                            <select id="term">
+
+                                <option>
+                                    First Term
+                                </option>
+
+                                <option>
+                                    Second Term
+                                </option>
+
+                                <option>
+                                    Third Term
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="duration">
+                                Duration
+                            </label>
+
+                            <select id="duration">
+
+                                <option>
+                                    30 minutes
+                                </option>
+
+                                <option selected>
+                                    40 minutes
+                                </option>
+
+                                <option>
+                                    45 minutes
+                                </option>
+
+                                <option>
+                                    60 minutes
+                                </option>
+
+                                <option>
+                                    90 minutes
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LEARNING OBJECTIVES -->
+                    <label for="objectives">
+                        Learning Objectives
+                    </label>
+
+                    <textarea
+                        id="objectives"
+                        placeholder="What should students learn by the end of the lesson?"
+                    ></textarea>
+
+
+                    <!-- ADDITIONAL INSTRUCTIONS -->
+                    <label for="instructions">
+                        Additional Instructions
+                    </label>
+
+                    <textarea
+                        id="instructions"
+                        placeholder="Add any special instructions for the lesson..."
+                    ></textarea>
+
+
+                    <!-- GENERATE BUTTON -->
+                    <button
+                        type="submit"
+                        id="generateBtn"
+                        class="generate-button"
+                    >
+                        ✨ Generate Lesson Note
+                    </button>
+
+
+                </form>
+
+            </section>
+
+
+            <!-- RIGHT SIDE -->
+            <section class="result-card">
+
+
+                <div class="result-header">
+
+                    <div>
+
+                        <h2>
+                            Your Lesson Note
+                        </h2>
+
+                        <p>
+                            Generated lesson note
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="copy-button"
+                        onclick="copyLesson()"
+                    >
+                        📋 Copy
+                    </button>
+
+                </div>
+
+
+                <!-- RESULT -->
+                <div id="result">
+
+                    <div class="empty-result">
+
+                        <div class="sparkle">
+                            ✨
+                        </div>
+
+                        <h3>
+                            Your lesson note will appear here
+                        </h3>
+
+                        <p>
+                            Fill in the form and click
+                            "Generate Lesson Note".
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        const form =
+            document.getElementById("lessonForm");
+
+        const result =
+            document.getElementById("result");
+
+        const generateBtn =
+            document.getElementById("generateBtn");
+
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            /* GET FORM VALUES */
+
+            const subject =
+                document.getElementById("subject")
+                .value.trim();
+
+            const className =
+                document.getElementById("className")
+                .value.trim();
+
+            const topic =
+                document.getElementById("topic")
+                .value.trim();
+
+            const term =
+                document.getElementById("term")
+                .value;
+
+            const duration =
+                document.getElementById("duration")
+                .value;
+
+            const objectives =
+                document.getElementById("objectives")
+                .value.trim();
+
+            const instructions =
+                document.getElementById("instructions")
+                .value.trim();
+
+
+            /* CHECK REQUIRED FIELDS */
+
+            if (
+                subject === "" ||
+                className === "" ||
+                topic === ""
+            ) {
+
+                alert(
+                    "Please enter Subject, Class and Lesson Topic."
+                );
+
+                return;
+
+            }
+
+
+            /* DISABLE BUTTON */
+
+            generateBtn.disabled = true;
+
+            generateBtn.innerHTML =
+                "⏳ Generating Lesson Note...";
+
+
+            /* SHOW LOADING */
+
+            result.innerHTML = `
+
+                <div class="loading">
+
+                    <div class="loading-icon">
+                        ✨
+                    </div>
+
+                    <h3>
+                        Creating your lesson note...
+                    </h3>
+
+                    <p>
+                        Please wait a moment.
+                    </p>
+
+                </div>
+
+            `;
+
+
+            /* GENERATE */
+
+            setTimeout(function() {
+
+
+                /* DEFAULT OBJECTIVE */
+
+                const finalObjectives =
+                    objectives ||
+                    `Students should understand the main concepts of ${topic} and be able to apply their knowledge correctly.`;
+
+
+                /* DEFAULT INSTRUCTIONS */
+
+                const finalInstructions =
+                    instructions ||
+                    `Use simple explanations, examples and classroom activities suitable for ${className}.`;
+
+
+                /* DISPLAY LESSON */
+
+                result.innerHTML = `
+
+                    <div class="lesson-output">
+
+
+                        <h2>
+                            ${topic}
+                        </h2>
+
+
+                        <div class="lesson-details">
+
+                            <p>
+                                <strong>Subject:</strong>
+                                ${subject}
+                            </p>
+
+                            <p>
+                                <strong>Class:</strong>
+                                ${className}
+                            </p>
+
+                            <p>
+                                <strong>Term:</strong>
+                                ${term}
+                            </p>
+
+                            <p>
+                                <strong>Duration:</strong>
+                                ${duration}
+                            </p>
+
+                        </div>
+
+
+                        <!-- OBJECTIVES -->
+
+                        <h3>
+                            1. Learning Objectives
+                        </h3>
+
+                        <p>
+                            ${finalObjectives}
+                        </p>
+
+
+                        <!-- PREVIOUS KNOWLEDGE -->
+
+                        <h3>
+                            2. Previous Knowledge
+                        </h3>
+
+                        <p>
+                            Students should have basic knowledge
+                            related to ${topic}.
+                        </p>
+
+
+                        <!-- MATERIALS -->
+
+                        <h3>
+                            3. Instructional Materials
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                Textbook
+                            </li>
+
+                            <li>
+                                Whiteboard and marker
+                            </li>
+
+                            <li>
+                                Relevant teaching materials
+                            </li>
+
+                        </ul>
+
+
+                        <!-- INTRODUCTION -->
+
+                        <h3>
+                            4. Introduction
+                        </h3>
+
+                        <p>
+                            The teacher introduces the lesson on
+                            ${topic} by asking students questions
+                            about what they already know.
+                        </p>
+
+
+                        <!-- PRESENTATION -->
+
+                        <h3>
+                            5. Lesson Presentation
+                        </h3>
+
+                        <p>
+                            The teacher explains ${topic} step by
+                            step using simple examples. Students
+                            participate in discussions and classroom
+                            activities.
+                        </p>
+
+
+                        <!-- TEACHER ACTIVITIES -->
+
+                        <h3>
+                            6. Teacher's Activities
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                Introduces the topic.
+                            </li>
+
+                            <li>
+                                Explains the main concepts.
+                            </li>
+
+                            <li>
+                                Provides examples.
+                            </li>
+
+                            <li>
+                                Guides students through activities.
+                            </li>
+
+                        </ul>
+
+
+                        <!-- STUDENT ACTIVITIES -->
+
+                        <h3>
+                            7. Students' Activities
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                Listen to the teacher.
+                            </li>
+
+                            <li>
+                                Ask and answer questions.
+                            </li>
+
+                            <li>
+                                Participate in classroom activities.
+                            </li>
+
+                            <li>
+                                Complete exercises.
+                            </li>
+
+                        </ul>
+
+
+                        <!-- EVALUATION -->
+
+                        <h3>
+                            8. Evaluation
+                        </h3>
+
+                        <ol>
+
+                            <li>
+                                What is ${topic}?
+                            </li>
+
+                            <li>
+                                Explain two important points about
+                                ${topic}.
+                            </li>
+
+                            <li>
+                                Give an example of ${topic}.
+                            </li>
+
+                            <li>
+                                Mention two things you learned.
+                            </li>
+
+                            <li>
+                                Solve one problem related to
+                                ${topic}.
+                            </li>
+
+                        </ol>
+
+
+                        <!-- ASSIGNMENT -->
+
+                        <h3>
+                            9. Assignment
+                        </h3>
+
+                        <p>
+                            Write and answer five questions about
+                            ${topic}.
+                        </p>
+
+
+                        <!-- INSTRUCTIONS -->
+
+                        <h3>
+                            10. Additional Instructions
+                        </h3>
+
+                        <p>
+                            ${finalInstructions}
+                        </p>
+
+
+                        <!-- CONCLUSION -->
+
+                        <h3>
+                            11. Conclusion
+                        </h3>
+
+                        <p>
+                            The teacher summarizes the major points
+                            discussed during the lesson and answers
+                            students' questions.
+                        </p>
+
+
+                    </div>
+
+                `;
+
+
+                /* ENABLE BUTTON */
+
+                generateBtn.disabled = false;
+
+                generateBtn.innerHTML =
+                    "✨ Generate Lesson Note";
+
+
+            }, 1500);
+
+        });
+
+
+        /* COPY FUNCTION */
+
+        function copyLesson() {
+
+            const lesson =
+                document.querySelector(".lesson-output");
+
+
+            if (!lesson) {
+
+                alert(
+                    "Please generate a lesson note first."
+                );
+
+                return;
+
+            }
+
+
+            const text =
+                lesson.innerText;
+
+
+            navigator.clipboard.writeText(text)
+                .then(function() {
+
+                    alert(
+                        "Lesson note copied successfully!"
+                    );
+
+                })
+                .catch(function() {
+
+                    alert(
+                        "Copy failed. Please copy the lesson manually."
+                    );
+
+                });
+
+        }
+
+    </script>
+
+</body>
+</html>

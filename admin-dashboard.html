@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LessonAI - Admin Dashboard</title>
+
+    <link rel="stylesheet" href="admin-dashboard.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span>📚</span>
+            <h2>LessonAI</h2>
+        </div>
+
+        <div class="admin-label">
+            ADMIN PANEL
+        </div>
+
+        <nav class="nav-menu">
+
+            <a href="admin-dashboard.html" class="nav-link active">
+                📊 <span>Dashboard</span>
+            </a>
+
+            <a href="#" class="nav-link" onclick="showComingSoon('Users')">
+                👥 <span>Users</span>
+            </a>
+
+            <a href="#" class="nav-link" onclick="showComingSoon('Subscriptions')">
+                💳 <span>Subscriptions</span>
+            </a>
+
+            <a href="#" class="nav-link" onclick="showComingSoon('Lessons')">
+                📝 <span>Generated Lessons</span>
+            </a>
+
+            <a href="#" class="nav-link" onclick="showComingSoon('Payments')">
+                💰 <span>Payments</span>
+            </a>
+
+            <a href="pricing.html" class="nav-link">
+                💵 <span>Pricing</span>
+            </a>
+
+            <a href="homepage.html" class="nav-link">
+                🏠 <span>Main Website</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="settings.html" class="nav-link">
+                ⚙️ <span>Settings</span>
+            </a>
+
+            <a href="login.html" class="logout">
+                🚪 Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div>
+                <h1>Admin Dashboard</h1>
+                <p>Welcome back, Administrator.</p>
+            </div>
+
+            <div class="admin-profile">
+
+                <div class="profile-icon">
+                    A
+                </div>
+
+                <div>
+                    <strong>Administrator</strong>
+                    <small>Super Admin</small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- STATISTICS -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon users-icon">
+                    👥
+                </div>
+
+                <div>
+                    <p>Total Users</p>
+                    <h2>1,248</h2>
+                    <span class="positive">
+                        ↑ 12.5% this month
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon subscribers-icon">
+                    ⭐
+                </div>
+
+                <div>
+                    <p>Paid Subscribers</p>
+                    <h2>186</h2>
+                    <span class="positive">
+                        ↑ 8.2% this month
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon lessons-icon">
+                    📝
+                </div>
+
+                <div>
+                    <p>Lessons Generated</p>
+                    <h2>8,642</h2>
+                    <span class="positive">
+                        ↑ 18.7% this month
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon revenue-icon">
+                    💰
+                </div>
+
+                <div>
+                    <p>Monthly Revenue</p>
+                    <h2>₦428,000</h2>
+                    <span class="positive">
+                        ↑ 15.4% this month
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTENT GRID -->
+        <section class="content-grid">
+
+            <!-- RECENT USERS -->
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Recent Users</h2>
+                        <p>Latest people who joined LessonAI.</p>
+                    </div>
+
+                    <button onclick="showComingSoon('All Users')">
+                        View All
+                    </button>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>User</th>
+                                <th>Plan</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    <strong>John Teacher</strong>
+                                    <small>john@example.com</small>
+                                </td>
+
+                                <td>
+                                    <span class="plan pro">
+                                        Teacher Pro
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="status active-status">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>Sep 3, 2026</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <strong>Mary School</strong>
+                                    <small>mary@example.com</small>
+                                </td>
+
+                                <td>
+                                    <span class="plan school">
+                                        School
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="status active-status">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>Sep 2, 2026</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <strong>David Teacher</strong>
+                                    <small>david@example.com</small>
+                                </td>
+
+                                <td>
+                                    <span class="plan free">
+                                        Free
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="status active-status">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>Sep 2, 2026</td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <strong>Sarah Teacher</strong>
+                                    <small>sarah@example.com</small>
+                                </td>
+
+                                <td>
+                                    <span class="plan pro">
+                                        Teacher Pro
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="status active-status">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>Sep 1, 2026</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK ACTIONS -->
+            <div class="panel quick-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Quick Actions</h2>
+                        <p>Manage your platform.</p>
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="quick-action"
+                    onclick="showComingSoon('User Management')"
+                >
+
+                    <span>👥</span>
+
+                    <div>
+                        <strong>Manage Users</strong>
+                        <small>View and manage accounts</small>
+                    </div>
+
+                    <b>→</b>
+
+                </button>
+
+
+                <button
+                    class="quick-action"
+                    onclick="showComingSoon('Subscriptions')"
+                >
+
+                    <span>💳</span>
+
+                    <div>
+                        <strong>Subscriptions</strong>
+                        <small>Manage paid plans</small>
+                    </div>
+
+                    <b>→</b>
+
+                </button>
+
+
+                <button
+                    class="quick-action"
+                    onclick="showComingSoon('Payments')"
+                >
+
+                    <span>💰</span>
+
+                    <div>
+                        <strong>Payments</strong>
+                        <small>View payment activity</small>
+                    </div>
+
+                    <b>→</b>
+
+                </button>
+
+
+                <button
+                    class="quick-action"
+                    onclick="showComingSoon('Reports')"
+                >
+
+                    <span>📈</span>
+
+                    <div>
+                        <strong>Reports</strong>
+                        <small>View platform statistics</small>
+                    </div>
+
+                    <b>→</b>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- GENERATOR STATISTICS -->
+        <section class="panel generator-panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h2>AI Generator Activity</h2>
+                    <p>Demo overview of generated teaching materials.</p>
+                </div>
+
+            </div>
+
+
+            <div class="generator-grid">
+
+                <div class="generator-item">
+
+                    <div class="generator-top">
+                        <span>📝</span>
+                        <strong>Lesson Notes</strong>
+                    </div>
+
+                    <h3>4,820</h3>
+
+                    <div class="progress">
+                        <div class="progress-fill" style="width: 85%;"></div>
+                    </div>
+
+                    <small>85% of total generations</small>
+
+                </div>
+
+
+                <div class="generator-item">
+
+                    <div class="generator-top">
+                        <span>📋</span>
+                        <strong>Lesson Plans</strong>
+                    </div>
+
+                    <h3>1,640</h3>
+
+                    <div class="progress">
+                        <div class="progress-fill" style="width: 55%;"></div>
+                    </div>
+
+                    <small>55% of total generations</small>
+
+                </div>
+
+
+                <div class="generator-item">
+
+                    <div class="generator-top">
+                        <span>❓</span>
+                        <strong>Quizzes</strong>
+                    </div>
+
+                    <h3>1,320</h3>
+
+                    <div class="progress">
+                        <div class="progress-fill" style="width: 45%;"></div>
+                    </div>
+
+                    <small>45% of total generations</small>
+
+                </div>
+
+
+                <div class="generator-item">
+
+                    <div class="generator-top">
+                        <span>📚</span>
+                        <strong>Schemes</strong>
+                    </div>
+
+                    <h3>862</h3>
+
+                    <div class="progress">
+                        <div class="progress-fill" style="width: 30%;"></div>
+                    </div>
+
+                    <small>30% of total generations</small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            © 2026 LessonAI Admin Panel
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script>
+
+function showComingSoon(section) {
+
+    alert(
+        section +
+        " management will be connected when we add the database."
+    );
+
+}
+
+</script>
+
+</body>
+</html>

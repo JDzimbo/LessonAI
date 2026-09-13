@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Lesson Note - LessonAI</title>
+    <link rel="stylesheet" href="edit-lesson.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            🌈 <span>LessonAI</span>
+        </div>
+
+        <nav>
+
+            <a href="homepage.html" class="nav-link">
+                🏠 <span>Dashboard</span>
+            </a>
+            <a href="quiz-generator.html" class="nav-link">
+    📝 <span>Quiz & Test</span>
+</a>
+ <a href="scheme-generator.html" class="nav-link">
+                📖 <span>Scheme of Work</span>
+            </a>
+
+            <a href="lesson-generator.html" class="nav-link">
+                ✨ <span>Generate Lesson</span>
+            </a>
+            <a href="lesson-plan-generator.html" class="nav-link">
+    📚 <span>Lesson Plan</span>
+</a>
+            <a href="my-lessons.html" class="nav-link">
+                📄 <span>My Lesson Notes</span>
+            </a>
+
+            <a href="history.html" class="nav-link">
+                🕘 <span>History</span>
+            </a>
+
+                <a href="pricing.html" class="nav-link active">
+                    💰 <span>Pricing</span>
+                </a>
+
+            <a href="settings.html" class="nav-link">
+                ⚙️ <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <a href="login.html" class="logout">
+            🚪 <span>Logout</span>
+        </a>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="top-header">
+
+            <div>
+                <h1>Edit Lesson Note</h1>
+                <p>Make changes to your lesson note before saving.</p>
+            </div>
+
+            <div class="profile">
+                <div class="profile-circle">T</div>
+                <span>Teacher</span>
+            </div>
+
+        </header>
+
+
+        <!-- ACTIONS -->
+
+        <div class="top-actions">
+
+            <a href="lesson-viewer.html" class="back-button">
+                ← Back to Lesson
+            </a>
+
+            <div class="buttons">
+
+                <button
+                    type="button"
+                    onclick="cancelEdit()"
+                    class="cancel-button"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="button"
+                    onclick="saveLesson()"
+                    class="save-button"
+                >
+                    💾 Save Lesson
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- EDIT FORM -->
+
+        <section class="editor-card">
+
+            <div class="editor-header">
+                <h2>Lesson Information</h2>
+                <p>Update the details below.</p>
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label for="subject">
+                        Subject
+                    </label>
+
+                    <input
+                        type="text"
+                        id="subject"
+                        value="Mathematics"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="className">
+                        Class
+                    </label>
+
+                    <input
+                        type="text"
+                        id="className"
+                        value="Basic 5"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="term">
+                        Term
+                    </label>
+
+                    <select id="term">
+
+                        <option>First Term</option>
+                        <option>Second Term</option>
+                        <option>Third Term</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="duration">
+                        Duration
+                    </label>
+
+                    <input
+                        type="text"
+                        id="duration"
+                        value="40 Minutes"
+                    >
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label for="topic">
+                        Lesson Topic
+                    </label>
+
+                    <input
+                        type="text"
+                        id="topic"
+                        value="Introduction to Fractions"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- OBJECTIVES -->
+
+        <section class="editor-card">
+
+            <div class="editor-header">
+                <h2>Learning Objectives</h2>
+                <p>What should students learn?</p>
+            </div>
+
+            <textarea id="objectives">By the end of the lesson, pupils should be able to:
+
+1. Define a fraction.
+2. Identify the numerator and denominator.
+3. Identify simple fractions.
+4. Represent fractions using diagrams.</textarea>
+
+        </section>
+
+
+        <!-- PREVIOUS KNOWLEDGE -->
+
+        <section class="editor-card">
+
+            <div class="editor-header">
+                <h2>Previous Knowledge</h2>
+            </div>
+
+            <textarea id="previousKnowledge">Pupils have basic knowledge of counting numbers and dividing objects into equal parts.</textarea>
+
+        </section>
+
+
+        <!-- INTRODUCTION -->
+
+        <section class="editor-card">
+
+            <div class="editor-header">
+                <h2>Introduction</h2>
+            </div>
+
+            <textarea id="introduction">The teacher shows the pupils an object such as an apple and divides it into equal parts. The teacher asks the pupils what happens when one part is taken from the whole.</textarea>
+
+        </section>
+
+
+        <!-- LESSON DEVELOPMENT -->
+
+        <section class="editor-card">
+
+            <div class="editor-header">
+                <h2>Lesson Development</h2>
+            </div>
+
+            <textarea id="development">A fraction represents a part of a whole. Fractions are written using two numbers. The number at the top is called the numerator, while the number at the bottom is called the denominator.
+
+For example, in the fraction 3/4, 3 is the numerator and 4 is the denominator.</textarea>
+
+        </section>
+
+
+        <!-- TEACHER ACTIVITIES -->
+
+        <section class="editor-card">
+
+            <div class="editor-header">
+                <h2>Teacher's Activities</h2>
+            </div>
+
+            <textarea id="teacherActivities">1. Introduces the topic.
+2. Uses objects to demonstrate fractions.
+3. Explains numerator and denominator.
+4. Gives examples on the board.
+5. Guides pupils through class activities.</textarea>
+
+        </section>
+
+
+        <!-- STUDENT ACTIVITIES -->
+
+        <section class="editor-card">
+
+            <div class="editor-header">
+                <h2>Pupils' Activities</h2>
+            </div>
+
+            <textarea id="studentActivities">1. Listen to the explanation.
+2. Answer questions.
+3. Identify fractions.
+4. Participate in classroom activities.</textarea>
+
+        </section>
+
+
+        <!-- EVALUATION -->
+
+        <section class="editor-card">
+
+            <div class="editor-header">
+                <h2>Evaluation</h2>
+            </div>
+
+            <textarea id="evaluation">1. What is a fraction?
+2. What is the numerator?
+3. What is the denominator?
+4. Identify the numerator in 2/5.
+5. Draw a diagram representing 1/2.</textarea>
+
+        </section>
+
+
+        <!-- ASSIGNMENT -->
+
+        <section class="editor-card">
+
+            <div class="editor-header">
+                <h2>Assignment</h2>
+            </div>
+
+            <textarea id="assignment">Write five examples of fractions and identify the numerator and denominator in each.</textarea>
+
+        </section>
+
+
+        <div class="bottom-save">
+
+            <button
+                type="button"
+                onclick="saveLesson()"
+                class="save-button large"
+            >
+                💾 Save Lesson Note
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        function saveLesson() {
+
+            const subject =
+                document.getElementById("subject").value;
+
+            const topic =
+                document.getElementById("topic").value;
+
+            if (subject.trim() === "" || topic.trim() === "") {
+
+                alert("Please enter the subject and lesson topic.");
+
+                return;
+
+            }
+
+            alert(
+                "Lesson note saved successfully!\n\n" +
+                subject +
+                " - " +
+                topic
+            );
+
+            window.location.href = "lesson-viewer.html";
+
+        }
+
+
+        function cancelEdit() {
+
+            const answer =
+                confirm(
+                    "Are you sure you want to cancel your changes?"
+                );
+
+            if (answer) {
+
+                window.location.href =
+                    "lesson-viewer.html";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

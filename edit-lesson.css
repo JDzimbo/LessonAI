@@ -1,0 +1,358 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #172033;
+}
+
+
+/* SIDEBAR */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 245px;
+    height: 100vh;
+
+    background: #111827;
+
+    padding: 35px 18px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+
+    margin-bottom: 50px;
+    padding-left: 15px;
+}
+
+.logo span {
+    margin-left: 5px;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-link {
+    display: block;
+
+    color: #dbe2f0;
+
+    text-decoration: none;
+
+    padding: 15px;
+
+    border-radius: 9px;
+
+    font-size: 15px;
+}
+
+.nav-link:hover {
+    background: #1f2937;
+}
+
+.logout {
+    margin-top: auto;
+
+    color: #dbe2f0;
+
+    text-decoration: none;
+
+    padding: 15px;
+}
+
+
+/* MAIN */
+
+.main-content {
+    margin-left: 245px;
+
+    padding: 40px 45px;
+
+    max-width: 1200px;
+}
+
+
+/* HEADER */
+
+.top-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.top-header h1 {
+    font-size: 32px;
+
+    margin-bottom: 8px;
+}
+
+.top-header p {
+    color: #64748b;
+}
+
+.profile {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.profile-circle {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 50%;
+
+    background: #2864e6;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+}
+
+
+/* TOP ACTIONS */
+
+.top-actions {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.back-button {
+    text-decoration: none;
+
+    color: #2864e6;
+
+    font-weight: bold;
+}
+
+.buttons {
+    display: flex;
+
+    gap: 10px;
+}
+
+.buttons button {
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.cancel-button {
+    background: #e5e7eb;
+
+    color: #374151;
+}
+
+.save-button {
+    background: #2864e6;
+
+    color: white;
+}
+
+.save-button:hover {
+    background: #1d4ed8;
+}
+
+
+/* EDITOR */
+
+.editor-card {
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+    margin-bottom: 22px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.editor-header {
+    margin-bottom: 22px;
+}
+
+.editor-header h2 {
+    font-size: 19px;
+
+    margin-bottom: 5px;
+}
+
+.editor-header p {
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* FORM GRID */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-size: 14px;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #2864e6;
+}
+
+
+/* TEXTAREAS */
+
+textarea {
+    width: 100%;
+
+    min-height: 150px;
+
+    resize: vertical;
+
+    padding: 15px;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+textarea:focus {
+    border-color: #2864e6;
+}
+
+
+/* BOTTOM SAVE */
+
+.bottom-save {
+    text-align: right;
+
+    margin: 30px 0 50px;
+}
+
+.save-button.large {
+    border: none;
+
+    padding: 14px 25px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-weight: bold;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 200px;
+
+        padding: 25px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .top-actions {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+}

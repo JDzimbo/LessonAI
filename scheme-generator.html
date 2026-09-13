@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheme of Work Generator - LessonAI</title>
+    <link rel="stylesheet" href="scheme-generator.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span>📚</span>
+            <h2>LessonAI</h2>
+        </div>
+
+        <nav class="navigation">
+
+            <a href="homepage.html" class="nav-link">
+                🏠 <span>Dashboard</span>
+            </a>
+
+            <a href="quiz-generator.html" class="nav-link">
+                📝 <span>Quiz & Test</span>
+            </a>
+
+            <a href="scheme-generator.html" class="nav-link ">
+                📖 <span>Scheme of Work</span>
+            </a>
+
+           
+            <a href="lesson-generator.html" class="nav-link">
+                ✨ <span>Generate Lesson</span>
+            </a>
+
+            <a href="lesson-plan-generator.html" class="nav-link">
+                📚 <span>Lesson Plan</span>
+            </a>
+
+            
+            <a href="my-lessons.html" class="nav-link">
+                📖 <span>My Lesson Notes</span>
+            </a>
+
+            <a href="history.html" class="nav-link">
+                🕘 <span>History</span>
+            </a>
+ <a href="pricing.html" class="nav-link active">
+                    💰 <span>Pricing</span>
+                </a>
+
+            <a href="settings.html" class="nav-link">
+                ⚙️ <span>Settings</span>
+            </a>
+
+            <a href="login.html" class="nav-link logout">
+                🚪 <span>Logout</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <div class="page-header">
+
+            <div>
+                <h1>📖 Scheme of Work Generator</h1>
+                <p>Create a structured scheme of work for an entire term.</p>
+            </div>
+
+            <a href="homepage.html" class="back-button">
+                ← Dashboard
+            </a>
+
+        </div>
+
+
+        <!-- GENERATOR -->
+        <section class="generator-card">
+
+            <div class="section-title">
+
+                <h2>Scheme Information</h2>
+
+                <p>
+                    Enter the basic information for the scheme of work.
+                </p>
+
+            </div>
+
+
+            <form id="schemeForm">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="subject">
+                            Subject
+                        </label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            placeholder="e.g. Mathematics"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="className">
+                            Class
+                        </label>
+
+                        <input
+                            type="text"
+                            id="className"
+                            placeholder="e.g. Basic 5"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="term">
+                            Term
+                        </label>
+
+                        <select id="term">
+
+                            <option value="">
+                                Select Term
+                            </option>
+
+                            <option value="First Term">
+                                First Term
+                            </option>
+
+                            <option value="Second Term">
+                                Second Term
+                            </option>
+
+                            <option value="Third Term">
+                                Third Term
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="weeks">
+                            Number of Weeks
+                        </label>
+
+                        <select id="weeks">
+
+                            <option value="10">
+                                10 Weeks
+                            </option>
+
+                            <option value="11">
+                                11 Weeks
+                            </option>
+
+                            <option value="12" selected>
+                                12 Weeks
+                            </option>
+
+                            <option value="13">
+                                13 Weeks
+                            </option>
+
+                            <option value="14">
+                                14 Weeks
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="topics">
+                        Topics or Main Areas
+                    </label>
+
+                    <textarea
+                        id="topics"
+                        placeholder="Enter topics you want included. You can separate them with commas or put each topic on a new line."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="objectives">
+                        Learning Objectives
+                    </label>
+
+                    <textarea
+                        id="objectives"
+                        placeholder="What should students learn throughout the term?"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="activities">
+                        Learning Activities
+                    </label>
+
+                    <textarea
+                        id="activities"
+                        placeholder="e.g. Group work, practical activities, discussions, assignments..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="materials">
+                        Teaching / Learning Materials
+                    </label>
+
+                    <textarea
+                        id="materials"
+                        placeholder="e.g. Textbooks, charts, models, computers..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="assessment">
+                        Assessment Methods
+                    </label>
+
+                    <textarea
+                        id="assessment"
+                        placeholder="e.g. Classwork, quizzes, tests, assignments..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="instructions">
+                        Additional Instructions
+                    </label>
+
+                    <textarea
+                        id="instructions"
+                        placeholder="Add any special requirements for your scheme of work..."
+                    ></textarea>
+
+                </div>
+
+
+                <button type="submit" id="generateBtn">
+                    ✨ Generate Scheme of Work
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- RESULT -->
+        <section class="result-card">
+
+            <div class="result-header">
+
+                <div>
+
+                    <h2>Generated Scheme of Work</h2>
+
+                    <p>
+                        Your scheme of work will appear here.
+                    </p>
+
+                </div>
+
+                <button id="copyBtn" class="copy-button">
+                    📋 Copy
+                </button>
+
+            </div>
+
+
+            <div id="result" class="result-content">
+
+                <div class="empty-result">
+
+                    <div class="empty-icon">
+                        📖
+                    </div>
+
+                    <h3>
+                        No scheme generated yet
+                    </h3>
+
+                    <p>
+                        Enter the scheme information above and click
+                        "Generate Scheme of Work".
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+
+const form = document.getElementById("schemeForm");
+const result = document.getElementById("result");
+const copyBtn = document.getElementById("copyBtn");
+
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    const subject =
+        document.getElementById("subject").value.trim();
+
+    const className =
+        document.getElementById("className").value.trim();
+
+    const term =
+        document.getElementById("term").value;
+
+    const weeks =
+        document.getElementById("weeks").value;
+
+    const topics =
+        document.getElementById("topics").value.trim();
+
+    const objectives =
+        document.getElementById("objectives").value.trim();
+
+    const activities =
+        document.getElementById("activities").value.trim();
+
+    const materials =
+        document.getElementById("materials").value.trim();
+
+    const assessment =
+        document.getElementById("assessment").value.trim();
+
+    const instructions =
+        document.getElementById("instructions").value.trim();
+
+
+    if (!subject || !className) {
+
+        alert("Please enter the Subject and Class.");
+
+        return;
+    }
+
+
+    result.innerHTML = `
+        <div class="loading">
+
+            <div class="spinner"></div>
+
+            <p>
+                Creating your scheme of work...
+            </p>
+
+        </div>
+    `;
+
+
+    setTimeout(function() {
+
+        result.innerHTML = `
+
+            <div class="scheme-output">
+
+                <h2>${subject}</h2>
+
+                <h3>
+                    Scheme of Work - ${className}
+                </h3>
+
+
+                <div class="scheme-details">
+
+                    <strong>Class:</strong>
+                    ${className}
+                    <br>
+
+                    <strong>Term:</strong>
+                    ${term || "Not specified"}
+                    <br>
+
+                    <strong>Duration:</strong>
+                    ${weeks} Weeks
+
+                </div>
+
+
+                <h3>
+                    General Learning Objectives
+                </h3>
+
+                <p>
+                    ${objectives ||
+                    "Students will develop knowledge, understanding and practical skills related to the topics covered during the term."}
+                </p>
+
+
+                <h3>
+                    Teaching and Learning Activities
+                </h3>
+
+                <p>
+                    ${activities ||
+                    "Class discussions, teacher explanations, demonstrations, individual exercises, group activities and practical work."}
+                </p>
+
+
+                <h3>
+                    Teaching / Learning Materials
+                </h3>
+
+                <p>
+                    ${materials ||
+                    "Textbooks, whiteboard, charts, relevant instructional materials and other available classroom resources."}
+                </p>
+
+
+                <h3>
+                    Assessment Methods
+                </h3>
+
+                <p>
+                    ${assessment ||
+                    "Classwork, homework, oral questioning, quizzes, assignments and periodic tests."}
+                </p>
+
+
+                <h3>
+                    Weekly Scheme
+                </h3>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Week
+                                </th>
+
+                                <th>
+                                    Topic
+                                </th>
+
+                                <th>
+                                    Objectives
+                                </th>
+
+                                <th>
+                                    Activities
+                                </th>
+
+                                <th>
+                                    Assessment
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    Week 1
+                                </td>
+
+                                <td>
+                                    ${topics || "Introduction to ${subject}"}
+                                </td>
+
+                                <td>
+                                    Introduce the basic concepts.
+                                </td>
+
+                                <td>
+                                    Discussion and teacher explanation.
+                                </td>
+
+                                <td>
+                                    Oral questions.
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    Week 2
+                                </td>
+
+                                <td>
+                                    Basic Concepts
+                                </td>
+
+                                <td>
+                                    Explain important concepts.
+                                </td>
+
+                                <td>
+                                    Examples and class activities.
+                                </td>
+
+                                <td>
+                                    Classwork.
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    Week 3
+                                </td>
+
+                                <td>
+                                    Practical Application
+                                </td>
+
+                                <td>
+                                    Apply knowledge to examples.
+                                </td>
+
+                                <td>
+                                    Group and individual activities.
+                                </td>
+
+                                <td>
+                                    Exercise.
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    Week 4
+                                </td>
+
+                                <td>
+                                    Revision
+                                </td>
+
+                                <td>
+                                    Review previous lessons.
+                                </td>
+
+                                <td>
+                                    Revision exercises.
+                                </td>
+
+                                <td>
+                                    Short test.
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    Week 5
+                                </td>
+
+                                <td>
+                                    Further Development
+                                </td>
+
+                                <td>
+                                    Develop deeper understanding.
+                                </td>
+
+                                <td>
+                                    Guided practice.
+                                </td>
+
+                                <td>
+                                    Assignment.
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <h3>
+                    Additional Instructions
+                </h3>
+
+                <p>
+                    ${instructions ||
+                    "Adjust activities according to students' learning needs and available classroom resources."}
+                </p>
+
+            </div>
+
+        `;
+
+    }, 1200);
+
+});
+
+
+copyBtn.addEventListener("click", function() {
+
+    const text = result.innerText;
+
+
+    if (
+        !text ||
+        text.includes("No scheme generated yet")
+    ) {
+
+        alert("There is no scheme of work to copy yet.");
+
+        return;
+    }
+
+
+    navigator.clipboard.writeText(text)
+        .then(function() {
+
+            alert("Scheme of work copied successfully!");
+
+        })
+        .catch(function() {
+
+            alert("Unable to copy the scheme of work.");
+
+        });
+
+});
+
+</script>
+
+</body>
+</html>

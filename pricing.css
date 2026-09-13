@@ -1,0 +1,428 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+}
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 250px;
+    background: #111827;
+    color: white;
+    min-height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 25px;
+    border-bottom: 1px solid #374151;
+}
+
+.logo span {
+    font-size: 28px;
+}
+
+.logo h2 {
+    font-size: 22px;
+}
+
+.nav-menu {
+    padding: 20px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nav-link {
+    color: #d1d5db;
+    text-decoration: none;
+    padding: 13px 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    background: #1f2937;
+    color: white;
+}
+
+.nav-link.active {
+    background: #2563eb;
+    color: white;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding: 20px;
+    border-top: 1px solid #374151;
+}
+
+.logout {
+    color: #d1d5db;
+    text-decoration: none;
+}
+
+
+/* MAIN */
+
+.main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 35px;
+}
+
+.topbar {
+    margin-bottom: 35px;
+}
+
+.topbar h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.topbar p {
+    color: #6b7280;
+}
+
+
+/* INTRO */
+
+.pricing-intro {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.pricing-intro h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.pricing-intro p {
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+
+/* BILLING */
+
+.billing-toggle {
+    display: inline-flex;
+    align-items: center;
+    background: white;
+    padding: 5px;
+    border-radius: 30px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+}
+
+.billing {
+    border: none;
+    background: transparent;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.billing.active {
+    background: #2563eb;
+    color: white;
+}
+
+.billing-toggle span {
+    font-size: 13px;
+    color: #16a34a;
+    padding: 0 15px 0 8px;
+}
+
+
+/* PRICING */
+
+.pricing-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1150px;
+    margin: auto;
+    align-items: stretch;
+}
+
+.pricing-card {
+    background: white;
+    border-radius: 15px;
+    padding: 35px 28px;
+    position: relative;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.pricing-card.popular {
+    border: 2px solid #2563eb;
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(37,99,235,0.15);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2563eb;
+    color: white;
+    padding: 7px 18px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.plan-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.pricing-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.plan-description {
+    color: #6b7280;
+    line-height: 1.6;
+    min-height: 75px;
+}
+
+
+/* PRICE */
+
+.price {
+    margin: 20px 0;
+    display: flex;
+    align-items: baseline;
+}
+
+.currency {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.amount {
+    font-size: 38px;
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+.period {
+    color: #6b7280;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+
+/* BUTTONS */
+
+.plan-button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.free-button {
+    background: white;
+    border: 1px solid #2563eb;
+    color: #2563eb;
+}
+
+.free-button:hover {
+    background: #eff6ff;
+}
+
+.pro-button {
+    background: #2563eb;
+    color: white;
+    border: 1px solid #2563eb;
+}
+
+.pro-button:hover {
+    background: #1d4ed8;
+}
+
+.school-button {
+    background: #111827;
+    color: white;
+    border: 1px solid #111827;
+}
+
+.school-button:hover {
+    background: #374151;
+}
+
+
+/* FEATURES */
+
+.features {
+    margin-top: 28px;
+}
+
+.features h4 {
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.features p {
+    margin-bottom: 13px;
+    color: #4b5563;
+    font-size: 14px;
+}
+
+
+/* FAQ */
+
+.pricing-faq {
+    max-width: 1000px;
+    margin: 70px auto 30px;
+}
+
+.pricing-faq h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 26px;
+}
+
+.faq-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.faq-item {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+
+.faq-item h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 25px;
+    color: #6b7280;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 1000px) {
+
+    .pricing-container {
+        grid-template-columns: 1fr;
+        max-width: 550px;
+    }
+
+    .pricing-card.popular {
+        transform: none;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 70px;
+    }
+
+    .logo {
+        padding: 0;
+        justify-content: center;
+    }
+
+    .logo h2 {
+        display: none;
+    }
+
+    .nav-link {
+        justify-content: center;
+        padding: 14px 5px;
+    }
+
+    .nav-link span {
+        display: none;
+    }
+
+    .sidebar-bottom {
+        padding: 15px 5px;
+        text-align: center;
+    }
+
+    .logout {
+        font-size: 0;
+    }
+
+    .logout::before {
+        content: "🚪";
+        font-size: 18px;
+    }
+
+    .main-content {
+        margin-left: 70px;
+        width: calc(100% - 70px);
+        padding: 20px;
+    }
+
+    .faq-container {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-intro h2 {
+        font-size: 23px;
+    }
+
+    .billing-toggle {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}

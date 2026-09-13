@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History - LessonAI</title>
+    <link rel="stylesheet" href="history.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            🌈 <span>LessonAI</span>
+        </div>
+
+        <nav>
+
+            <a href="homepage.html" class="nav-link">
+                🏠 <span>Dashboard</span>
+            </a>
+            <a href="quiz-generator.html" class="nav-link">
+    📝 <span>Quiz & Test</span>
+</a>
+ <a href="scheme-generator.html" class="nav-link">
+                📖 <span>Scheme of Work</span>
+            </a>
+
+            <a href="lesson-generator.html" class="nav-link">
+                ✨ <span>Generate Lesson</span>
+            </a>
+            <a href="lesson-plan-generator.html" class="nav-link">
+    📚 <span>Lesson Plan</span>
+</a>
+
+            <a href="my-lessons.html" class="nav-link">
+                📄 <span>My Lesson Notes</span>
+            </a>
+
+            <a href="history.html" class="nav-link active">
+                🕘 <span>History</span>
+            </a>
+
+                <a href="pricing.html" class="nav-link active">
+                    💰 <span>Pricing</span>
+                </a>
+
+            <a href="settings.html" class="nav-link">
+                ⚙️ <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <a href="login.html" class="logout">
+            🚪 <span>Logout</span>
+        </a>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="top-header">
+
+            <div>
+                <h1>Generation History</h1>
+                <p>View your previous lesson note generations.</p>
+            </div>
+
+            <div class="profile">
+                <div class="profile-circle">T</div>
+                <span>Teacher</span>
+            </div>
+
+        </header>
+
+
+        <!-- SUMMARY CARDS -->
+        <section class="summary">
+
+            <div class="summary-card">
+                <div class="summary-icon">📄</div>
+                <div>
+                    <h3>3</h3>
+                    <p>Total Notes</p>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-icon">✨</div>
+                <div>
+                    <h3>3</h3>
+                    <p>AI Generations</p>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-icon">📚</div>
+                <div>
+                    <h3>3</h3>
+                    <p>Subjects</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- HISTORY CARD -->
+        <section class="history-card">
+
+            <div class="history-header">
+
+                <div>
+                    <h2>Recent Generations</h2>
+                    <p>Your latest generated lesson notes.</p>
+                </div>
+
+                <input
+                    type="text"
+                    id="searchHistory"
+                    placeholder="🔍 Search history..."
+                    onkeyup="searchHistory()"
+                >
+
+            </div>
+
+
+            <!-- TABLE -->
+            <div class="table-container">
+
+                <table id="historyTable">
+
+                    <thead>
+
+                        <tr>
+                            <th>Subject</th>
+                            <th>Topic</th>
+                            <th>Class</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                <strong>Mathematics</strong>
+                            </td>
+
+                            <td>Introduction to Fractions</td>
+
+                            <td>Basic 5</td>
+
+                            <td>Today</td>
+
+                            <td>
+                                <span class="status">Generated</span>
+                            </td>
+
+                            <td>
+                                <a href="lesson-viewer.html" class="view-btn">
+    View
+</a>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>Science</strong>
+                            </td>
+
+                            <td>The Human Digestive System</td>
+
+                            <td>Basic 6</td>
+
+                            <td>Yesterday</td>
+
+                            <td>
+                                <span class="status">Generated</span>
+                            </td>
+
+                            <td>
+                               <a href="lesson-viewer.html" class="view-btn">
+    View
+</a>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>English</strong>
+                            </td>
+
+                            <td>Parts of Speech</td>
+
+                            <td>JSS 1</td>
+
+                            <td>2 days ago</td>
+
+                            <td>
+                                <span class="status">Generated</span>
+                            </td>
+
+                            <td>
+                                <a href="lesson-viewer.html" class="view-btn">
+    View
+</a>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- EMPTY RESULT -->
+            <div id="noHistory" class="no-history">
+
+                <div>🔍</div>
+
+                <h3>No history found</h3>
+
+                <p>Try searching for another subject or topic.</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- CREATE NEW -->
+        <section class="create-section">
+
+            <h2>Want to create another lesson?</h2>
+
+            <p>
+                Generate a professional lesson note with LessonAI.
+            </p>
+
+            <a href="lesson-generator.html" class="create-button">
+                ✨ Create New Lesson Note
+            </a>
+
+        </section>
+
+    </main>
+
+
+   function searchHistory() {
+
+    const input =
+        document.getElementById("searchHistory")
+        .value
+        .toLowerCase();
+
+    const rows =
+        document.querySelectorAll("#historyTable tbody tr");
+
+    let found = 0;
+
+    rows.forEach(function(row) {
+
+        const text =
+            row.innerText.toLowerCase();
+
+        if (text.includes(input)) {
+
+            row.style.display = "";
+            found++;
+
+        } else {
+
+            row.style.display = "none";
+
+        }
+
+    });
+
+    document.getElementById("noHistory").style.display =
+        found === 0 ? "block" : "none";
+}
+
+</body>
+</html>

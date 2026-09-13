@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Plan Generator - LessonAI</title>
+    <link rel="stylesheet" href="lesson-plan-generator.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span>📚</span>
+            <h2>LessonAI</h2>
+        </div>
+
+        <nav class="navigation">
+
+            <a href="homepage.html" class="nav-link">
+                🏠 <span>Dashboard</span>
+            </a>
+              
+             <a href="quiz-generator.html" class="nav-link">
+    📝 <span>Quiz & Test</span>
+</a>
+ <a href="scheme-generator.html" class="nav-link">
+                📖 <span>Scheme of Work</span>
+            </a>
+            <a href="lesson-generator.html" class="nav-link">
+                ✨ <span>Generate Lesson</span>
+            </a>
+
+            <a href="lesson-plan-generator.html" class="nav-link active">
+                📚 <span>Lesson Plan</span>
+            </a>
+
+            <a href="my-lessons.html" class="nav-link">
+                📖 <span>My Lesson Notes</span>
+            </a>
+
+            <a href="history.html" class="nav-link">
+                🕘 <span>History</span>
+            </a>
+
+            
+                <a href="pricing.html" class="nav-link active">
+                    💰 <span>Pricing</span>
+                </a>
+
+            <a href="settings.html" class="nav-link">
+                ⚙️ <span>Settings</span>
+            </a>
+
+            <a href="login.html" class="nav-link logout">
+                🚪 <span>Logout</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <div class="page-header">
+            <div>
+                <h1>📚 Lesson Plan Generator</h1>
+                <p>Create structured lesson plans for your students.</p>
+            </div>
+
+            <a href="lesson-generator.html" class="back-button">
+                ← Lesson Note Generator
+            </a>
+        </div>
+
+
+        <!-- GENERATOR CARD -->
+        <section class="generator-card">
+
+            <div class="section-title">
+                <h2>Lesson Information</h2>
+                <p>Enter the details of the lesson you want to plan.</p>
+            </div>
+
+
+            <form id="lessonPlanForm">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            placeholder="e.g. Mathematics"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="className">Class</label>
+
+                        <input
+                            type="text"
+                            id="className"
+                            placeholder="e.g. Basic 5"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="topic">Lesson Topic</label>
+
+                        <input
+                            type="text"
+                            id="topic"
+                            placeholder="e.g. Introduction to Fractions"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="term">Term</label>
+
+                        <select id="term">
+                            <option value="">Select Term</option>
+                            <option value="First Term">First Term</option>
+                            <option value="Second Term">Second Term</option>
+                            <option value="Third Term">Third Term</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="duration">Duration</label>
+
+                    <input
+                        type="text"
+                        id="duration"
+                        placeholder="e.g. 40 minutes"
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="objectives">Learning Objectives</label>
+
+                    <textarea
+                        id="objectives"
+                        placeholder="What should students be able to do by the end of the lesson?"
+                    ></textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="previousKnowledge">Previous Knowledge</label>
+
+                    <textarea
+                        id="previousKnowledge"
+                        placeholder="What do students already know about this topic?"
+                    ></textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="teachingMethods">Teaching Methods</label>
+
+                    <textarea
+                        id="teachingMethods"
+                        placeholder="e.g. Discussion, Demonstration, Question and Answer"
+                    ></textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="materials">Teaching / Learning Materials</label>
+
+                    <textarea
+                        id="materials"
+                        placeholder="e.g. Textbooks, charts, board, real objects..."
+                    ></textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="teacherActivities">Teacher Activities</label>
+
+                    <textarea
+                        id="teacherActivities"
+                        placeholder="Describe what the teacher will do during the lesson."
+                    ></textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="studentActivities">Student Activities</label>
+
+                    <textarea
+                        id="studentActivities"
+                        placeholder="Describe what the students will do during the lesson."
+                    ></textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="assessment">Assessment / Evaluation</label>
+
+                    <textarea
+                        id="assessment"
+                        placeholder="How will students be assessed?"
+                    ></textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="instructions">Additional Instructions</label>
+
+                    <textarea
+                        id="instructions"
+                        placeholder="Add any special instructions for the lesson plan..."
+                    ></textarea>
+                </div>
+
+
+                <button type="submit" id="generateBtn">
+                    ✨ Generate Lesson Plan
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- RESULT -->
+        <section class="result-card">
+
+            <div class="result-header">
+                <div>
+                    <h2>Generated Lesson Plan</h2>
+                    <p>Your lesson plan will appear here.</p>
+                </div>
+
+                <button id="copyBtn" class="copy-button">
+                    📋 Copy
+                </button>
+            </div>
+
+            <div id="result" class="result-content">
+
+                <div class="empty-result">
+                    <div class="empty-icon">📚</div>
+
+                    <h3>No lesson plan yet</h3>
+
+                    <p>
+                        Fill in the lesson information above and click
+                        "Generate Lesson Plan".
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+
+const form = document.getElementById("lessonPlanForm");
+const result = document.getElementById("result");
+const copyBtn = document.getElementById("copyBtn");
+
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const subject = document.getElementById("subject").value.trim();
+    const className = document.getElementById("className").value.trim();
+    const topic = document.getElementById("topic").value.trim();
+    const term = document.getElementById("term").value;
+    const duration = document.getElementById("duration").value.trim();
+    const objectives = document.getElementById("objectives").value.trim();
+    const previousKnowledge = document.getElementById("previousKnowledge").value.trim();
+    const teachingMethods = document.getElementById("teachingMethods").value.trim();
+    const materials = document.getElementById("materials").value.trim();
+    const teacherActivities = document.getElementById("teacherActivities").value.trim();
+    const studentActivities = document.getElementById("studentActivities").value.trim();
+    const assessment = document.getElementById("assessment").value.trim();
+    const instructions = document.getElementById("instructions").value.trim();
+
+
+    if (!subject || !className || !topic) {
+
+        alert("Please enter the Subject, Class and Lesson Topic.");
+
+        return;
+    }
+
+
+    result.innerHTML = `
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Creating your lesson plan...</p>
+        </div>
+    `;
+
+
+    setTimeout(function() {
+
+        result.innerHTML = `
+
+            <div class="lesson-plan-output">
+
+                <h2>${subject}</h2>
+
+                <h3>${topic}</h3>
+
+                <div class="lesson-details">
+                    <strong>Class:</strong> ${className}<br>
+                    <strong>Term:</strong> ${term || "Not specified"}<br>
+                    <strong>Duration:</strong> ${duration || "Not specified"}
+                </div>
+
+
+                <h3>1. Learning Objectives</h3>
+                <p>
+                    ${objectives || "Students will develop an understanding of " + topic + " and demonstrate their knowledge through classroom activities and assessment."}
+                </p>
+
+
+                <h3>2. Previous Knowledge</h3>
+                <p>
+                    ${previousKnowledge || "Students should have basic knowledge related to the topic."}
+                </p>
+
+
+                <h3>3. Teaching Methods</h3>
+                <p>
+                    ${teachingMethods || "Discussion, explanation, demonstration, questioning and guided practice."}
+                </p>
+
+
+                <h3>4. Teaching / Learning Materials</h3>
+                <p>
+                    ${materials || "Textbooks, whiteboard, markers and relevant teaching materials."}
+                </p>
+
+
+                <h3>5. Teacher Activities</h3>
+                <p>
+                    ${teacherActivities || "The teacher introduces the topic, explains the main concepts, asks questions, demonstrates examples and guides students through activities."}
+                </p>
+
+
+                <h3>6. Student Activities</h3>
+                <p>
+                    ${studentActivities || "Students listen, participate in discussions, answer questions, complete activities and ask questions where necessary."}
+                </p>
+
+
+                <h3>7. Assessment / Evaluation</h3>
+                <p>
+                    ${assessment || "The teacher asks oral and written questions to determine whether students understand the lesson."}
+                </p>
+
+
+                <h3>8. Additional Instructions</h3>
+                <p>
+                    ${instructions || "Encourage students to participate actively and provide support to students who need additional assistance."}
+                </p>
+
+
+                <h3>9. Lesson Procedure</h3>
+
+                <ol>
+                    <li><strong>Introduction:</strong> Introduce the topic and connect it with students' previous knowledge.</li>
+
+                    <li><strong>Presentation:</strong> Explain the main concepts using appropriate examples and teaching materials.</li>
+
+                    <li><strong>Class Activity:</strong> Allow students to participate in guided activities and discussions.</li>
+
+                    <li><strong>Evaluation:</strong> Ask questions and give short exercises to check understanding.</li>
+
+                    <li><strong>Conclusion:</strong> Summarize the major points and clarify areas students find difficult.</li>
+                </ol>
+
+
+                <h3>10. Homework</h3>
+
+                <p>
+                    Give students a short exercise related to ${topic}.
+                </p>
+
+            </div>
+
+        `;
+
+    }, 1200);
+
+});
+
+
+copyBtn.addEventListener("click", function() {
+
+    const text = result.innerText;
+
+    if (!text || text.includes("No lesson plan yet")) {
+
+        alert("There is no lesson plan to copy yet.");
+
+        return;
+    }
+
+
+    navigator.clipboard.writeText(text)
+        .then(function() {
+
+            alert("Lesson plan copied successfully!");
+
+        })
+        .catch(function() {
+
+            alert("Unable to copy the lesson plan.");
+
+        });
+
+});
+
+</script>
+
+</body>
+</html>

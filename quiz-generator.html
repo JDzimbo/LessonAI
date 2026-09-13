@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz & Test Generator - LessonAI</title>
+    <link rel="stylesheet" href="quiz-generator.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span>📚</span>
+            <h2>LessonAI</h2>
+        </div>
+
+        <nav class="navigation">
+
+            <a href="homepage.html" class="nav-link">
+                🏠 <span>Dashboard</span>
+            </a>
+            <a href="quiz-generator.html" class="nav-link">
+    📝 <span>Quiz & Test</span>
+</a>
+ <a href="scheme-generator.html" class="nav-link">
+                📖 <span>Scheme of Work</span>
+            </a>
+
+            <a href="lesson-generator.html" class="nav-link">
+                ✨ <span>Generate Lesson</span>
+            </a>
+
+            <a href="lesson-plan-generator.html" class="nav-link">
+                📚 <span>Lesson Plan</span>
+            </a>
+
+            <a href="my-lessons.html" class="nav-link">
+                📖 <span>My Lesson Notes</span>
+            </a>
+
+            <a href="history.html" class="nav-link">
+                🕘 <span>History</span>
+            </a>
+
+                <a href="pricing.html" class="nav-link active">
+                    💰 <span>Pricing</span>
+                </a>
+
+            <a href="settings.html" class="nav-link">
+                ⚙️ <span>Settings</span>
+            </a>
+
+            <a href="login.html" class="nav-link logout">
+                🚪 <span>Logout</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <div class="page-header">
+
+            <div>
+                <h1>📝 Quiz & Test Generator</h1>
+                <p>Create quizzes, tests and examination questions for your students.</p>
+            </div>
+
+            <a href="lesson-generator.html" class="back-button">
+                ← Lesson Generator
+            </a>
+
+        </div>
+
+
+        <section class="generator-card">
+
+            <div class="section-title">
+                <h2>Assessment Information</h2>
+                <p>Enter the details for the questions you want to create.</p>
+            </div>
+
+
+            <form id="quizForm">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            placeholder="e.g. Mathematics"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="className">Class</label>
+
+                        <input
+                            type="text"
+                            id="className"
+                            placeholder="e.g. Basic 5"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="topic">Topic</label>
+
+                        <input
+                            type="text"
+                            id="topic"
+                            placeholder="e.g. Fractions"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="term">Term</label>
+
+                        <select id="term">
+                            <option value="">Select Term</option>
+                            <option value="First Term">First Term</option>
+                            <option value="Second Term">Second Term</option>
+                            <option value="Third Term">Third Term</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="questionCount">
+                            Number of Questions
+                        </label>
+
+                        <select id="questionCount">
+
+                            <option value="5">5 Questions</option>
+                            <option value="10" selected>10 Questions</option>
+                            <option value="15">15 Questions</option>
+                            <option value="20">20 Questions</option>
+                            <option value="30">30 Questions</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="questionType">
+                            Question Type
+                        </label>
+
+                        <select id="questionType">
+
+                            <option value="Multiple Choice">
+                                Multiple Choice
+                            </option>
+
+                            <option value="Theory">
+                                Theory
+                            </option>
+
+                            <option value="Both">
+                                Multiple Choice & Theory
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="difficulty">
+                        Difficulty Level
+                    </label>
+
+                    <select id="difficulty">
+
+                        <option value="Easy">
+                            Easy
+                        </option>
+
+                        <option value="Medium" selected>
+                            Medium
+                        </option>
+
+                        <option value="Hard">
+                            Hard
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="objectives">
+                        Learning Objectives
+                    </label>
+
+                    <textarea
+                        id="objectives"
+                        placeholder="What should the questions test?">
+                    </textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="instructions">
+                        Additional Instructions
+                    </label>
+
+                    <textarea
+                        id="instructions"
+                        placeholder="e.g. Include questions based on real-life examples.">
+                    </textarea>
+
+                </div>
+
+
+                <button type="submit" id="generateBtn">
+                    ✨ Generate Questions
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section class="result-card">
+
+            <div class="result-header">
+
+                <div>
+                    <h2>Generated Questions</h2>
+                    <p>Your assessment will appear here.</p>
+                </div>
+
+                <button id="copyBtn" class="copy-button">
+                    📋 Copy
+                </button>
+
+            </div>
+
+
+            <div id="result" class="result-content">
+
+                <div class="empty-result">
+
+                    <div class="empty-icon">
+                        📝
+                    </div>
+
+                    <h3>No questions yet</h3>
+
+                    <p>
+                        Fill in the information above and click
+                        "Generate Questions".
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+
+const form = document.getElementById("quizForm");
+const result = document.getElementById("result");
+const copyBtn = document.getElementById("copyBtn");
+
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    const subject =
+        document.getElementById("subject").value.trim();
+
+    const className =
+        document.getElementById("className").value.trim();
+
+    const topic =
+        document.getElementById("topic").value.trim();
+
+    const term =
+        document.getElementById("term").value;
+
+    const questionCount =
+        document.getElementById("questionCount").value;
+
+    const questionType =
+        document.getElementById("questionType").value;
+
+    const difficulty =
+        document.getElementById("difficulty").value;
+
+    const objectives =
+        document.getElementById("objectives").value.trim();
+
+    const instructions =
+        document.getElementById("instructions").value.trim();
+
+
+    if (!subject || !className || !topic) {
+
+        alert("Please enter the Subject, Class and Topic.");
+
+        return;
+    }
+
+
+    result.innerHTML = `
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Creating your questions...</p>
+        </div>
+    `;
+
+
+    setTimeout(function() {
+
+        let questions = "";
+
+
+        if (
+            questionType === "Multiple Choice" ||
+            questionType === "Both"
+        ) {
+
+            questions += `
+                <h3>Section A: Multiple Choice Questions</h3>
+
+                <div class="question">
+                    <strong>1.</strong>
+                    Which of the following best describes ${topic}?
+
+                    <div class="options">
+                        A. An important concept in ${subject}<br>
+                        B. A type of measurement<br>
+                        C. A classroom activity<br>
+                        D. None of the above
+                    </div>
+                </div>
+
+
+                <div class="question">
+                    <strong>2.</strong>
+                    Which statement about ${topic} is correct?
+
+                    <div class="options">
+                        A. It is not related to ${subject}<br>
+                        B. It is an important part of the topic<br>
+                        C. It cannot be explained<br>
+                        D. None of the above
+                    </div>
+                </div>
+
+
+                <div class="question">
+                    <strong>3.</strong>
+                    What is one practical example related to ${topic}?
+
+                    <div class="options">
+                        A. Example A<br>
+                        B. Example B<br>
+                        C. Example C<br>
+                        D. Example D
+                    </div>
+                </div>
+            `;
+        }
+
+
+        if (
+            questionType === "Theory" ||
+            questionType === "Both"
+        ) {
+
+            questions += `
+                <h3>Section B: Theory Questions</h3>
+
+                <div class="question">
+                    <strong>1.</strong>
+                    Explain ${topic} in your own words.
+                </div>
+
+                <div class="question">
+                    <strong>2.</strong>
+                    State and explain three important points about ${topic}.
+                </div>
+
+                <div class="question">
+                    <strong>3.</strong>
+                    Give two examples related to ${topic}.
+                </div>
+            `;
+        }
+
+
+        result.innerHTML = `
+
+            <div class="quiz-output">
+
+                <h2>${subject}</h2>
+
+                <h3>${topic}</h3>
+
+
+                <div class="assessment-details">
+
+                    <strong>Class:</strong> ${className}<br>
+
+                    <strong>Term:</strong>
+                    ${term || "Not specified"}<br>
+
+                    <strong>Number of Questions:</strong>
+                    ${questionCount}<br>
+
+                    <strong>Question Type:</strong>
+                    ${questionType}<br>
+
+                    <strong>Difficulty:</strong>
+                    ${difficulty}
+
+                </div>
+
+
+                ${questions}
+
+
+                <h3>Answer Key</h3>
+
+                <div class="answer-key">
+
+                    1. A<br>
+                    2. B<br>
+                    3. C
+
+                </div>
+
+
+                <h3>Teacher's Instructions</h3>
+
+                <p>
+                    ${instructions ||
+                    "Answer all questions carefully. Read each question before answering."}
+                </p>
+
+            </div>
+
+        `;
+
+    }, 1200);
+
+});
+
+
+copyBtn.addEventListener("click", function() {
+
+    const text = result.innerText;
+
+
+    if (
+        !text ||
+        text.includes("No questions yet")
+    ) {
+
+        alert("There are no questions to copy yet.");
+
+        return;
+    }
+
+
+    navigator.clipboard.writeText(text)
+        .then(function() {
+
+            alert("Questions copied successfully!");
+
+        })
+        .catch(function() {
+
+            alert("Unable to copy the questions.");
+
+        });
+
+});
+
+</script>
+
+</body>
+</html>

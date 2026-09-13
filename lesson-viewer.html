@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Note - LessonAI</title>
+    <link rel="stylesheet" href="lesson-viewer.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            🌈 <span>LessonAI</span>
+        </div>
+
+        <nav>
+
+            <a href="homepage.html" class="nav-link">
+                🏠 <span>Dashboard</span>
+            </a>
+           <a href="quiz-generator.html" class="nav-link">
+    📝 <span>Quiz & Test</span>
+</a>
+ <a href="scheme-generator.html" class="nav-link">
+                📖 <span>Scheme of Work</span>
+            </a>
+
+            <a href="lesson-generator.html" class="nav-link">
+                ✨ <span>Generate Lesson</span>
+            </a>
+            <a href="lesson-plan-generator.html" class="nav-link">
+    📚 <span>Lesson Plan</span>
+</a>
+            <a href="my-lessons.html" class="nav-link">
+                📄 <span>My Lesson Notes</span>
+            </a>
+
+            <a href="history.html" class="nav-link">
+                🕘 <span>History</span>
+            </a>
+ <a href="pricing.html" class="nav-link active">
+                    💰 <span>Pricing</span>
+                </a>
+
+            <a href="settings.html" class="nav-link">
+                ⚙️ <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <a href="login.html" class="logout">
+            🚪 <span>Logout</span>
+        </a>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="top-header">
+
+            <div>
+                <h1>Lesson Note</h1>
+                <p>View and manage your lesson note.</p>
+            </div>
+
+            <div class="profile">
+                <div class="profile-circle">T</div>
+                <span>Teacher</span>
+            </div>
+
+        </header>
+
+
+        <!-- ACTION BUTTONS -->
+
+        <div class="actions">
+
+            <a href="my-lessons.html" class="back-button">
+                ← Back to My Notes
+            </a>
+
+            <div class="action-buttons">
+
+                <a href="edit-lesson.html" class="edit-button">
+    ✏️ Edit
+</a>
+
+                <button onclick="copyLesson()" class="copy-button">
+                    📋 Copy
+                </button>
+
+                <button onclick="window.print()" class="print-button">
+                    🖨️ Print
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- LESSON NOTE -->
+
+        <article class="lesson-paper" id="lessonNote">
+
+            <div class="school-header">
+
+                <h2>LESSON NOTE</h2>
+
+                <p>LessonAI</p>
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="lesson-details">
+
+                <div>
+                    <strong>Subject:</strong>
+                    Mathematics
+                </div>
+
+                <div>
+                    <strong>Class:</strong>
+                    Basic 5
+                </div>
+
+                <div>
+                    <strong>Term:</strong>
+                    First Term
+                </div>
+
+                <div>
+                    <strong>Duration:</strong>
+                    40 Minutes
+                </div>
+
+                <div>
+                    <strong>Topic:</strong>
+                    Introduction to Fractions
+                </div>
+
+            </div>
+
+
+            <section>
+
+                <h3>Learning Objectives</h3>
+
+                <p>
+                    By the end of the lesson, pupils should be able to:
+                </p>
+
+                <ol>
+
+                    <li>
+                        Define a fraction.
+                    </li>
+
+                    <li>
+                        Identify the numerator and denominator.
+                    </li>
+
+                    <li>
+                        Identify simple fractions in everyday examples.
+                    </li>
+
+                    <li>
+                        Represent fractions using diagrams.
+                    </li>
+
+                </ol>
+
+            </section>
+
+
+            <section>
+
+                <h3>Previous Knowledge</h3>
+
+                <p>
+                    Pupils have basic knowledge of counting numbers
+                    and dividing objects into equal parts.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h3>Introduction</h3>
+
+                <p>
+                    The teacher shows the pupils an object such as an
+                    apple and divides it into equal parts. The teacher
+                    asks the pupils what happens when one part is taken
+                    from the whole.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h3>Lesson Development</h3>
+
+                <p>
+                    A fraction represents a part of a whole. Fractions
+                    are written using two numbers. The number at the
+                    top is called the numerator, while the number at
+                    the bottom is called the denominator.
+                </p>
+
+                <p>
+                    For example, in the fraction 3/4, 3 is the numerator
+                    and 4 is the denominator.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h3>Teacher's Activities</h3>
+
+                <ul>
+
+                    <li>
+                        Introduces the topic.
+                    </li>
+
+                    <li>
+                        Uses objects to demonstrate fractions.
+                    </li>
+
+                    <li>
+                        Explains numerator and denominator.
+                    </li>
+
+                    <li>
+                        Gives examples on the board.
+                    </li>
+
+                    <li>
+                        Guides pupils through class activities.
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <section>
+
+                <h3>Pupils' Activities</h3>
+
+                <ul>
+
+                    <li>
+                        Listen to the explanation.
+                    </li>
+
+                    <li>
+                        Answer questions.
+                    </li>
+
+                    <li>
+                        Identify fractions.
+                    </li>
+
+                    <li>
+                        Participate in classroom activities.
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <section>
+
+                <h3>Evaluation</h3>
+
+                <ol>
+
+                    <li>
+                        What is a fraction?
+                    </li>
+
+                    <li>
+                        What is the numerator?
+                    </li>
+
+                    <li>
+                        What is the denominator?
+                    </li>
+
+                    <li>
+                        Identify the numerator in 2/5.
+                    </li>
+
+                    <li>
+                        Draw a diagram representing 1/2.
+                    </li>
+
+                </ol>
+
+            </section>
+
+
+            <section>
+
+                <h3>Conclusion</h3>
+
+                <p>
+                    The teacher summarizes the lesson and reminds pupils
+                    that a fraction represents part of a whole.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h3>Assignment</h3>
+
+                <p>
+                    Write five examples of fractions and identify the
+                    numerator and denominator in each.
+                </p>
+
+            </section>
+
+
+            <div class="note-footer">
+
+                <p>
+                    Generated with LessonAI
+                </p>
+
+            </div>
+
+        </article>
+
+    </main>
+
+
+    <script>
+
+        function copyLesson() {
+
+            const note =
+                document.getElementById("lessonNote").innerText;
+
+            navigator.clipboard.writeText(note)
+                .then(function() {
+
+                    alert("Lesson note copied successfully!");
+
+                })
+                .catch(function() {
+
+                    alert(
+                        "Copy failed. Please select the lesson note and copy it manually."
+                    );
+
+                });
+
+        }
+
+
+        function editLesson() {
+
+            alert(
+                "Edit mode will be added next."
+            );
+
+        }
+
+    </script>
+
+</body>
+</html>

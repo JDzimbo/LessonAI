@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LessonAI - Dashboard</title>
+
+    <!-- Connect Homepage CSS -->
+    <link rel="stylesheet" href="homepage.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         LOGIN PROTECTION
+    ========================== -->
+
+    <script>
+        const loggedIn = localStorage.getItem("lessonAILoggedIn");
+
+        if (loggedIn !== "true") {
+            window.location.href = "login.html";
+        }
+    </script>
+
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            Lesson<span>AI</span>
+        </div>
+
+
+        <nav class="navigation">
+
+            <a href="homepage.html" class="nav-link active">
+                🏠
+                <span>Dashboard</span>
+            </a>
+
+
+            <a href="lesson-generator.html" class="nav-link">
+                📝
+                <span>Lesson Generator</span>
+            </a>
+
+
+            <a href="lesson-plan-generator.html" class="nav-link">
+                📚
+                <span>Lesson Plan</span>
+            </a>
+
+
+            <a href="quiz-generator.html" class="nav-link">
+                ❓
+                <span>Quiz & Test</span>
+            </a>
+
+
+            <a href="scheme-generator.html" class="nav-link">
+                📅
+                <span>Scheme of Work</span>
+            </a>
+
+
+            <a href="my-lessons.html" class="nav-link">
+                📖
+                <span>My Lessons</span>
+            </a>
+
+
+            <a href="history.html" class="nav-link">
+                🕘
+                <span>History</span>
+            </a>
+
+
+            <a href="pricing.html" class="nav-link">
+                💰
+                <span>Pricing</span>
+            </a>
+
+
+            <a href="settings.html" class="nav-link">
+                ⚙️
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <!-- LOGOUT BUTTON -->
+
+        <button class="logout-btn" onclick="logout()">
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    Welcome back,
+                    <span id="userName">Teacher</span>!
+                </h1>
+
+                <p>
+                    Create powerful teaching resources with LessonAI.
+                </p>
+
+            </div>
+
+
+            <div class="profile-icon">
+                👤
+            </div>
+
+        </header>
+
+
+
+        <!-- =========================
+             STATISTICS
+        ========================== -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📝
+                </div>
+
+                <div>
+                    <h3 id="lessonCount">0</h3>
+                    <p>Lessons Created</p>
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📚
+                </div>
+
+                <div>
+                    <h3>0</h3>
+                    <p>Lesson Plans</p>
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ❓
+                </div>
+
+                <div>
+                    <h3>0</h3>
+                    <p>Quizzes Created</p>
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    💾
+                </div>
+
+                <div>
+                    <h3>0</h3>
+                    <p>Saved Resources</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             AI TOOLS
+        ========================== -->
+
+        <section class="tools-section">
+
+            <div class="section-header">
+
+                <h2>
+                    AI Teaching Tools
+                </h2>
+
+                <p>
+                    Choose a tool to create your teaching materials.
+                </p>
+
+            </div>
+
+
+
+            <div class="tools-grid">
+
+
+                <!-- LESSON NOTE -->
+
+                <div class="tool-card">
+
+                    <div class="tool-icon">
+                        📝
+                    </div>
+
+                    <h3>
+                        Lesson Note Generator
+                    </h3>
+
+                    <p>
+                        Generate complete lesson notes for your students
+                        in seconds.
+                    </p>
+
+                    <a
+                        href="lesson-generator.html"
+                        class="tool-button">
+
+                        Create Lesson Note
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- LESSON PLAN -->
+
+                <div class="tool-card">
+
+                    <div class="tool-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Lesson Plan Generator
+                    </h3>
+
+                    <p>
+                        Create structured lesson plans quickly and easily.
+                    </p>
+
+                    <a
+                        href="lesson-plan-generator.html"
+                        class="tool-button">
+
+                        Create Lesson Plan
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- QUIZ -->
+
+                <div class="tool-card">
+
+                    <div class="tool-icon">
+                        ❓
+                    </div>
+
+                    <h3>
+                        Quiz & Test Generator
+                    </h3>
+
+                    <p>
+                        Generate quizzes, tests and answer keys for your
+                        students.
+                    </p>
+
+                    <a
+                        href="quiz-generator.html"
+                        class="tool-button">
+
+                        Create Quiz
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- SCHEME -->
+
+                <div class="tool-card">
+
+                    <div class="tool-icon">
+                        📅
+                    </div>
+
+                    <h3>
+                        Scheme of Work Generator
+                    </h3>
+
+                    <p>
+                        Create weekly schemes of work for your classes.
+                    </p>
+
+                    <a
+                        href="scheme-generator.html"
+                        class="tool-button">
+
+                        Create Scheme
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             QUICK ACTIONS
+        ========================== -->
+
+        <section class="quick-section">
+
+            <h2>
+                Quick Actions
+            </h2>
+
+
+            <div class="quick-actions">
+
+                <a href="lesson-generator.html">
+                    📝 Generate Lesson
+                </a>
+
+
+                <a href="my-lessons.html">
+                    📖 My Lessons
+                </a>
+
+
+                <a href="history.html">
+                    🕘 History
+                </a>
+
+
+                <a href="pricing.html">
+                    💰 Upgrade Plan
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+    </main>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /*
+         * DISPLAY USER NAME
+         */
+
+        const userName =
+            localStorage.getItem("lessonAIUserName");
+
+
+        if (userName) {
+
+            document.getElementById("userName").textContent =
+                userName;
+
+        }
+
+
+
+        /*
+         * COUNT SAVED LESSONS
+         */
+
+        const savedLessons =
+            JSON.parse(
+                localStorage.getItem("lessonAILessons")
+            ) || [];
+
+
+        document.getElementById("lessonCount").textContent =
+            savedLessons.length;
+
+
+
+        /*
+         * LOGOUT
+         */
+
+        function logout() {
+
+            localStorage.removeItem("lessonAILoggedIn");
+
+            localStorage.removeItem("lessonAIUserName");
+
+            window.location.href = "login.html";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

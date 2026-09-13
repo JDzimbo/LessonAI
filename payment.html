@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LessonAI - Payment</title>
+
+    <link rel="stylesheet" href="payment.css">
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="logo">
+            📚 <span>LessonAI</span>
+        </div>
+
+        <a href="pricing.html" class="back-link">
+            ← Back to Pricing
+        </a>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="payment-container">
+
+        <!-- LEFT SIDE -->
+        <section class="payment-form">
+
+            <h1>Complete Your Subscription</h1>
+
+            <p class="subtitle">
+                Choose your plan and enter your details to continue.
+            </p>
+
+
+            <!-- SELECT PLAN -->
+            <div class="section">
+
+                <h2>1. Select Your Plan</h2>
+
+                <div class="plan-options">
+
+                    <label class="plan-option">
+
+                        <input
+                            type="radio"
+                            name="plan"
+                            value="Teacher Pro"
+                            data-price="3000"
+                            checked
+                        >
+
+                        <div>
+                            <strong>Teacher Pro</strong>
+                            <p>₦3,000 / month</p>
+                        </div>
+
+                    </label>
+
+
+                    <label class="plan-option">
+
+                        <input
+                            type="radio"
+                            name="plan"
+                            value="School"
+                            data-price="50000"
+                        >
+
+                        <div>
+                            <strong>School</strong>
+                            <p>₦50,000 / month</p>
+                        </div>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- CUSTOMER INFORMATION -->
+            <div class="section">
+
+                <h2>2. Your Information</h2>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="fullname">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullname"
+                            placeholder="Enter your full name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="08012345678"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="account-type">
+                            Account Type
+                        </label>
+
+                        <select id="account-type">
+
+                            <option value="Teacher">
+                                Teacher
+                            </option>
+
+                            <option value="School">
+                                School
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PAYMENT METHOD -->
+            <div class="section">
+
+                <h2>3. Payment Method</h2>
+
+                <div class="payment-method">
+
+                    <div class="method-icon">
+                        💳
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Online Payment
+                        </strong>
+
+                        <p>
+                            Secure payment will be processed through our
+                            payment provider.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TERMS -->
+            <div class="terms">
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                    >
+
+                    I agree to the LessonAI
+                    <a href="#">
+                        Terms of Service
+                    </a>
+                    and
+                    <a href="#">
+                        Privacy Policy
+                    </a>.
+
+                </label>
+
+            </div>
+
+
+            <!-- BUTTON -->
+            <button
+                class="pay-button"
+                onclick="processPayment()"
+            >
+
+                Continue to Payment
+
+            </button>
+
+
+            <p class="secure-text">
+                🔒 Your payment information will be securely processed.
+            </p>
+
+        </section>
+
+
+
+        <!-- RIGHT SIDE -->
+        <aside class="order-summary">
+
+            <h2>Order Summary</h2>
+
+
+            <div class="summary-plan">
+
+                <div>
+
+                    <span class="small-label">
+                        Selected Plan
+                    </span>
+
+                    <h3 id="summary-plan">
+                        Teacher Pro
+                    </h3>
+
+                </div>
+
+                <span class="plan-icon">
+                    🚀
+                </span>
+
+            </div>
+
+
+            <div class="summary-line">
+
+                <span>
+                    Subscription
+                </span>
+
+                <strong id="summary-price">
+                    ₦3,000
+                </strong>
+
+            </div>
+
+
+            <div class="summary-line">
+
+                <span>
+                    Billing
+                </span>
+
+                <span>
+                    Monthly
+                </span>
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="total">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="total-price">
+                    ₦3,000
+                </strong>
+
+            </div>
+
+
+            <div class="benefits">
+
+                <h3>
+                    Your plan includes:
+                </h3>
+
+                <p>✓ AI Lesson Notes</p>
+
+                <p>✓ Lesson Plans</p>
+
+                <p>✓ Quiz & Test Generator</p>
+
+                <p>✓ Scheme of Work Generator</p>
+
+                <p>✓ Save unlimited lessons</p>
+
+                <p>✓ PDF & Word export</p>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        © 2026 LessonAI. All rights reserved.
+
+    </footer>
+
+</div>
+
+
+<script>
+
+    const planOptions =
+        document.querySelectorAll(
+            'input[name="plan"]'
+        );
+
+
+    planOptions.forEach(function(option) {
+
+        option.addEventListener(
+            "change",
+            function() {
+
+                const selectedPlan =
+                    this.value;
+
+                const selectedPrice =
+                    this.dataset.price;
+
+
+                document.getElementById(
+                    "summary-plan"
+                ).textContent =
+                    selectedPlan;
+
+
+                document.getElementById(
+                    "summary-price"
+                ).textContent =
+                    "₦" +
+                    Number(
+                        selectedPrice
+                    ).toLocaleString();
+
+
+                document.getElementById(
+                    "total-price"
+                ).textContent =
+                    "₦" +
+                    Number(
+                        selectedPrice
+                    ).toLocaleString();
+
+            }
+        );
+
+    });
+
+
+    function processPayment() {
+
+        const fullname =
+            document.getElementById(
+                "fullname"
+            ).value.trim();
+
+
+        const email =
+            document.getElementById(
+                "email"
+            ).value.trim();
+
+
+        const phone =
+            document.getElementById(
+                "phone"
+            ).value.trim();
+
+
+        const terms =
+            document.getElementById(
+                "terms"
+            ).checked;
+
+
+        if (!fullname) {
+
+            alert(
+                "Please enter your full name."
+            );
+
+            return;
+        }
+
+
+        if (!email) {
+
+            alert(
+                "Please enter your email address."
+            );
+
+            return;
+        }
+
+
+        if (!phone) {
+
+            alert(
+                "Please enter your phone number."
+            );
+
+            return;
+        }
+
+
+        if (!terms) {
+
+            alert(
+                "Please accept the Terms of Service and Privacy Policy."
+            );
+
+            return;
+        }
+
+
+        alert(
+            "Your payment details have been validated. Real payment processing will be connected in the next stage."
+        );
+
+    }
+
+</script>
+
+</body>
+</html>

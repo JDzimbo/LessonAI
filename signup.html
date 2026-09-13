@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up - LessonAI</title>
+
+    <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+
+    <div class="signup-container">
+
+        <!-- LEFT SIDE -->
+        <div class="signup-info">
+
+            <div class="logo">
+                Lesson<span>AI</span>
+            </div>
+
+            <h1>Create your LessonAI account</h1>
+
+            <p>
+                Join LessonAI and create lesson notes, lesson plans,
+                quizzes, tests and schemes of work with ease.
+            </p>
+
+            <div class="features">
+                <div>✓ Generate lesson notes</div>
+                <div>✓ Create lesson plans</div>
+                <div>✓ Generate quizzes and tests</div>
+                <div>✓ Create schemes of work</div>
+                <div>✓ Save and manage your resources</div>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="signup-box">
+
+            <h2>Create Account</h2>
+
+            <p class="subtitle">
+                Enter your details to get started
+            </p>
+
+
+            <form id="signupForm">
+
+                <!-- FULL NAME -->
+                <div class="input-group">
+
+                    <label for="fullname">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullname"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+                <div class="input-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="text"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PHONE -->
+                <div class="input-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter your phone number"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ACCOUNT TYPE -->
+                <div class="input-group">
+
+                    <label for="accountType">
+                        Account Type
+                    </label>
+
+                    <select id="accountType" required>
+
+                        <option value="">
+                            Select account type
+                        </option>
+
+                        <option value="teacher">
+                            Teacher
+                        </option>
+
+                        <option value="school">
+                            School
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+                <div class="input-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Create a password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+                <div class="input-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm your password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- TERMS -->
+                <div class="terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    <label for="terms">
+
+                        I agree to the
+
+                        <a href="#">
+                            Terms & Conditions
+                        </a>
+
+                        and
+
+                        <a href="#">
+                            Privacy Policy
+                        </a>
+
+                    </label>
+
+                </div>
+
+
+                <!-- MESSAGE -->
+                <p
+                    id="errorMessage"
+                    class="error-message"
+                ></p>
+
+
+                <!-- CREATE ACCOUNT -->
+                <button
+                    type="submit"
+                    class="signup-btn"
+                    id="signupButton"
+                >
+                    Create Account
+                </button>
+
+            </form>
+
+
+            <!-- LOGIN LINK -->
+            <div class="login-link">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </div>
+
+
+            <!-- FORGOT PASSWORD -->
+            <div class="forgot-link">
+
+                <a href="forgot-password.html">
+                    Forgot your password?
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+  <script>
+const form = document.getElementById("signupForm");
+const message = document.getElementById("message");
+const button = form.querySelector("button");
+
+form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const fullname = document.getElementById("fullname").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const accountType = document.getElementById("accountType").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (password !== confirmPassword) {
+        message.style.color = "red";
+        message.textContent = "Passwords do not match.";
+        return;
+    }
+
+    button.disabled = true;
+    button.textContent = "Creating Account...";
+
+    try {
+        const response = await fetch("http://localhost:5000/api/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                fullname,
+                email,
+                phone,
+                accountType,
+                password
+            })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            message.style.color = "red";
+            message.textContent = data.message || "Registration failed.";
+            button.disabled = false;
+            button.textContent = "Create Account";
+            return;
+        }
+
+        message.style.color = "green";
+        message.textContent = "Account created successfully! Taking you to Login...";
+
+        setTimeout(function() {
+            window.location.href = "login.html";
+        }, 1000);
+
+    } catch (error) {
+        message.style.color = "red";
+        message.textContent = "Cannot connect to the server. Make sure your backend is running.";
+
+        button.disabled = false;
+        button.textContent = "Create Account";
+    }
+});
+</script>
+</body>
+</html>

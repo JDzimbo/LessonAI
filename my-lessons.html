@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Lesson Notes - LessonAI</title>
+    <link rel="stylesheet" href="my-lessons.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            🌈 <span>LessonAI</span>
+        </div>
+
+        <nav>
+
+            <a href="homepage.html" class="nav-link">
+                🏠 <span>Dashboard</span>
+            </a>
+            <a href="quiz-generator.html" class="nav-link">
+                📝 <span>Quiz & Test</span>
+            </a>
+
+            <a href="scheme-generator.html" class="nav-link ">
+                📖 <span>Scheme of Work</span>
+            </a>
+
+
+            <a href="lesson-generator.html" class="nav-link">
+                ✨ <span>Generate Lesson</span>
+            </a>
+            <a href="lesson-plan-generator.html" class="nav-link">
+    📚 <span>Lesson Plan</span>
+</a>
+
+            <a href="my-lessons.html" class="nav-link active">
+                📄 <span>My Lesson Notes</span>
+            </a>
+
+            <a href="history.html" class="nav-link">
+                🕘 <span>History</span>
+            </a>
+ <a href="pricing.html" class="nav-link active">
+                    💰 <span>Pricing</span>
+                </a>
+
+            <a href="settings.html" class="nav-link">
+                ⚙️ <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <a href="login.html" class="logout">
+            🚪 <span>Logout</span>
+        </a>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <header class="top-header">
+
+            <div>
+                <h1>My Lesson Notes</h1>
+                <p>View and manage your generated lesson notes.</p>
+            </div>
+
+            <div class="profile">
+                <div class="profile-circle">T</div>
+                <strong>Teacher</strong>
+            </div>
+
+        </header>
+
+
+        <!-- ACTION AREA -->
+        <section class="actions">
+
+            <div class="search-box">
+                🔍
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search lesson notes..."
+                    onkeyup="searchLessons()"
+                >
+            </div>
+
+            <a href="lesson-generator.html" class="new-button">
+                ✨ New Lesson Note
+            </a>
+
+        </section>
+
+
+        <!-- LESSON NOTES -->
+        <section class="lesson-section">
+
+            <div class="section-header">
+                <h2>Your Lesson Notes</h2>
+                <span id="noteCount">3 notes</span>
+            </div>
+
+
+            <div class="lesson-grid" id="lessonGrid">
+
+                <!-- LESSON 1 -->
+                <div class="lesson-card">
+
+                    <div class="card-top">
+                        <span class="subject">Mathematics</span>
+                        <button class="menu-button">⋮</button>
+                    </div>
+
+                    <h3>Introduction to Fractions</h3>
+
+                    <p>
+                        A lesson introducing students to fractions,
+                        their types, and basic operations.
+                    </p>
+
+                    <div class="lesson-info">
+                        <span>🎓 Basic 5</span>
+                        <span>⏱️ 40 mins</span>
+                    </div>
+
+                    <div class="card-bottom">
+                        <small>Created today</small>
+
+                        <a href="lesson-viewer.html" class="view-button">
+    View Note
+</a>
+                    </div>
+
+                </div>
+
+
+                <!-- LESSON 2 -->
+                <div class="lesson-card">
+
+                    <div class="card-top">
+                        <span class="subject science">Science</span>
+                        <button class="menu-button">⋮</button>
+                    </div>
+
+                    <h3>The Human Digestive System</h3>
+
+                    <p>
+                        Students learn about the major organs involved
+                        in digestion and their functions.
+                    </p>
+
+                    <div class="lesson-info">
+                        <span>🎓 Basic 6</span>
+                        <span>⏱️ 45 mins</span>
+                    </div>
+
+                    <div class="card-bottom">
+                        <small>Created yesterday</small>
+
+                        <a href="lesson-viewer.html" class="view-button">
+    View Note
+</a>
+                    </div>
+
+                </div>
+
+
+                <!-- LESSON 3 -->
+                <div class="lesson-card">
+
+                    <div class="card-top">
+                        <span class="subject english">English</span>
+                        <button class="menu-button">⋮</button>
+                    </div>
+
+                    <h3>Parts of Speech</h3>
+
+                    <p>
+                        A lesson explaining nouns, pronouns, verbs,
+                        adjectives, and other parts of speech.
+                    </p>
+
+                    <div class="lesson-info">
+                        <span>🎓 JSS 1</span>
+                        <span>⏱️ 40 mins</span>
+                    </div>
+
+                    <div class="card-bottom">
+                        <small>Created 2 days ago</small>
+
+                       <a href="lesson-viewer.html" class="view-button">
+    View Note
+</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EMPTY MESSAGE -->
+            <div id="noResults" class="no-results">
+                <div>📄</div>
+                <h3>No lesson notes found</h3>
+                <p>Try another search.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- SIMPLE JAVASCRIPT -->
+    <script>
+
+        function searchLessons() {
+
+            const search =
+                document.getElementById("searchInput")
+                .value
+                .toLowerCase();
+
+            const cards =
+                document.querySelectorAll(".lesson-card");
+
+            let found = 0;
+
+            cards.forEach(function(card) {
+
+                const text =
+                    card.innerText.toLowerCase();
+
+                if (text.includes(search)) {
+
+                    card.style.display = "block";
+                    found++;
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+            const noResults =
+                document.getElementById("noResults");
+
+            if (found === 0) {
+                noResults.style.display = "block";
+            } else {
+                noResults.style.display = "none";
+            }
+        }
+
+
+        function viewLesson(title) {
+
+            alert(
+                "Opening lesson note:\n\n" +
+                title +
+                "\n\nThe full lesson note viewer will be connected next."
+            );
+
+        }
+
+    </script>
+
+</body>
+</html>
