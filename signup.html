@@ -234,7 +234,7 @@
     </div>
 
 
-  <script>
+ <script>
 const form = document.getElementById("signupForm");
 const message = document.getElementById("message");
 const button = form.querySelector("button");
@@ -242,9 +242,9 @@ const button = form.querySelector("button");
 form.addEventListener("submit", async function(event) {
     event.preventDefault();
 
-    const fullname = document.getElementById("fullname").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
+    const fullname = document.getElementById("fullname").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
     const accountType = document.getElementById("accountType").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
@@ -291,8 +291,10 @@ form.addEventListener("submit", async function(event) {
         }, 1000);
 
     } catch (error) {
+        console.error("Registration error:", error);
+
         message.style.color = "red";
-        message.textContent = "Cannot connect to the server. Make sure your backend is running.";
+        message.textContent = "Cannot connect to the server. Please try again.";
 
         button.disabled = false;
         button.textContent = "Create Account";
