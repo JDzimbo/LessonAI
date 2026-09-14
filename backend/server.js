@@ -4,7 +4,10 @@ const bcrypt = require("bcryptjs");
 const Database = require("better-sqlite3");
 
 const app = express();
-const PORT = 5000;
+
+// Render provides the PORT environment variable.
+// 5000 is used when running locally.
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
@@ -157,6 +160,6 @@ app.post("/api/login", async (req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-    console.log(`LessonAI server running at http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`LessonAI server running on port ${PORT}`);
 });
