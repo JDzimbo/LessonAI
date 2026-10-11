@@ -23,7 +23,37 @@ if (!JWT_SECRET || JWT_SECRET.length < 32) {
 }
 
 // Security middleware
-app.use(helmet());
+app.use(helmet());app.use(
+    helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: ["'self'"],
+                scriptSrc: [
+                    "'self'",
+                    "'unsafe-inline'",        // allow inline scripts
+                    "https://cdn.jsdelivr.net", // if you use any CDN
+                ],
+                styleSrc: [
+                    "'self'",
+                    "'unsafe-inline'",        // allow inline styles
+                    "https://fonts.googleapis.com",
+                    "https://cdnjs.cloudflare.com",
+                ],
+                imgSrc: ["'self'", "data:", "https:"],
+                connectSrc: [
+                    "'self'",
+                    "https://lessonai-qoqr.onrender.com",
+                ],
+                fontSrc: [
+                    "'self'",
+                    "https://fonts.gstatic.com",
+                    "https://cdnjs.cloudflare.com",
+                ],
+            },
+        },
+        crossOriginEmbedderPolicy: false,  // allows external images
+    })
+);
 
 const allowedOrigins = [
     "https://jdzimbo.github.io",
