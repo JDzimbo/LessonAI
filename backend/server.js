@@ -27,10 +27,11 @@ app.use(helmet());
 
 const allowedOrigins = [
     "https://jdzimbo.github.io",
+    "https://lessonai-qoqr.onrender.com",
     "http://127.0.0.1:5500",
-    "http://localhost:5500"
+    "http://localhost:5500",
+    "http://localhost:5000"
 ];
-
 app.use(cors({
     origin: function (origin, callback) {
         // Allow requests without an Origin header, such as health checks.
@@ -42,6 +43,8 @@ app.use(cors({
 }));
 
 app.use(express.json({ limit: "20kb" }));
+app.use(express.static(__dirname + "/.."));
+app.use(express.static(__dirname + "/../public"));
 
 // Database
 const db = new Database("lessonai.db");
@@ -66,13 +69,21 @@ const openai = OPENAI_API_KEY
     ? new OpenAI({ apiKey: OPENAI_API_KEY })
     : null;
 
-// Health check: does not require login
+
+
+// Serve the landing page at the root
 app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/../index.html");
+});
+
+// Health check endpoint (moved off root)
+app.get("/health", (req, res) => {
     res.json({
         success: true,
         message: "LessonAI backend is running."
     });
 });
+
 
 // Authentication middleware
 function authenticateToken(req, res, next) {
