@@ -10,54 +10,45 @@
 <body>
 
     <!-- SIDEBAR -->
-    <aside class="sidebar">
+   <aside class="sidebar">
+    <div class="logo">
+        Lesson<span>AI</span>
+    </div>
 
-        <div class="logo">
-            🌈 <span>LessonAI</span>
-        </div>
-
-        <nav>
-
-            <a href="homepage.html" class="nav-link">
-                🏠 <span>Dashboard</span>
-            </a>
-            <a href="quiz-generator.html" class="nav-link">
-    📝 <span>Quiz & Test</span>
-</a>
- <a href="scheme-generator.html" class="nav-link">
-                📖 <span>Scheme of Work</span>
-            </a>
-
-            <a href="lesson-generator.html" class="nav-link">
-                ✨ <span>Generate Lesson</span>
-            </a>
-            <a href="lesson-plan-generator.html" class="nav-link">
-    📚 <span>Lesson Plan</span>
-</a>
-
-            <a href="my-lessons.html" class="nav-link">
-                📄 <span>My Lesson Notes</span>
-            </a>
-
-            <a href="history.html" class="nav-link active">
-                🕘 <span>History</span>
-            </a>
-
-                <a href="pricing.html" class="nav-link active">
-                    💰 <span>Pricing</span>
-                </a>
-
-            <a href="settings.html" class="nav-link">
-                ⚙️ <span>Settings</span>
-            </a>
-
-        </nav>
-
-        <a href="login.html" class="logout">
-            🚪 <span>Logout</span>
+    <nav class="navigation">
+        <a href="homepage.html" class="nav-link">
+            🏠 <span>Dashboard</span>
         </a>
+        <a href="lesson-generator.html" class="nav-link">
+            📝 <span>Lesson Generator</span>
+        </a>
+        <a href="lesson-plan-generator.html" class="nav-link">
+            📚 <span>Lesson Plan</span>
+        </a>
+        <a href="quiz-generator.html" class="nav-link">
+            ❓ <span>Quiz & Test</span>
+        </a>
+        <a href="scheme-generator.html" class="nav-link">
+            📅 <span>Scheme of Work</span>
+        </a>
+        <a href="my-lessons.html" class="nav-link">
+            📖 <span>My Lessons</span>
+        </a>
+        <a href="history.html" class="nav-link active">
+            🕘 <span>History</span>
+        </a>
+        <a href="pricing.html" class="nav-link">
+            💰 <span>Pricing</span>
+        </a>
+        <a href="settings.html" class="nav-link">
+            ⚙️ <span>Settings</span>
+        </a>
+    </nav>
 
-    </aside>
+    <button class="logout-btn" onclick="window.location.href='login.html'">
+        🚪 Logout
+    </button>
+</aside>
 
 
     <!-- MAIN CONTENT -->
@@ -84,7 +75,7 @@
             <div class="summary-card">
                 <div class="summary-icon">📄</div>
                 <div>
-                    <h3>3</h3>
+                    <h3 id="totalNotesCount">0</h3>
                     <p>Total Notes</p>
                 </div>
             </div>
@@ -92,7 +83,7 @@
             <div class="summary-card">
                 <div class="summary-icon">✨</div>
                 <div>
-                    <h3>3</h3>
+                    <h3 id="totalGenerationsCount">0</h3>
                     <p>AI Generations</p>
                 </div>
             </div>
@@ -100,7 +91,7 @@
             <div class="summary-card">
                 <div class="summary-icon">📚</div>
                 <div>
-                    <h3>3</h3>
+                    <h3 id="totalSubjectsCount">0</h3>
                     <p>Subjects</p>
                 </div>
             </div>
@@ -146,82 +137,8 @@
 
                     </thead>
 
-                    <tbody>
-
-                        <tr>
-
-                            <td>
-                                <strong>Mathematics</strong>
-                            </td>
-
-                            <td>Introduction to Fractions</td>
-
-                            <td>Basic 5</td>
-
-                            <td>Today</td>
-
-                            <td>
-                                <span class="status">Generated</span>
-                            </td>
-
-                            <td>
-                                <a href="lesson-viewer.html" class="view-btn">
-    View
-</a>
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <td>
-                                <strong>Science</strong>
-                            </td>
-
-                            <td>The Human Digestive System</td>
-
-                            <td>Basic 6</td>
-
-                            <td>Yesterday</td>
-
-                            <td>
-                                <span class="status">Generated</span>
-                            </td>
-
-                            <td>
-                               <a href="lesson-viewer.html" class="view-btn">
-    View
-</a>
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <td>
-                                <strong>English</strong>
-                            </td>
-
-                            <td>Parts of Speech</td>
-
-                            <td>JSS 1</td>
-
-                            <td>2 days ago</td>
-
-                            <td>
-                                <span class="status">Generated</span>
-                            </td>
-
-                            <td>
-                                <a href="lesson-viewer.html" class="view-btn">
-    View
-</a>
-                            </td>
-
-                        </tr>
-
+                    <tbody id="historyTableBody">
+                        <!-- Real data will go here via JavaScript -->
                     </tbody>
 
                 </table>
@@ -231,13 +148,7 @@
 
             <!-- EMPTY RESULT -->
             <div id="noHistory" class="no-history">
-
-                <div>🔍</div>
-
-                <h3>No history found</h3>
-
-                <p>Try searching for another subject or topic.</p>
-
+                <!-- Message will be injected by JavaScript -->
             </div>
 
         </section>
@@ -261,39 +172,89 @@
     </main>
 
 
-   function searchHistory() {
+    <script>
+        // 1. Load data on page load
+        document.addEventListener("DOMContentLoaded", function () {
+            const savedLessons = JSON.parse(localStorage.getItem("lessonAILessons")) || [];
 
-    const input =
-        document.getElementById("searchHistory")
-        .value
-        .toLowerCase();
+            // Update Summary Cards
+            document.getElementById("totalNotesCount").innerText = savedLessons.length;
+            document.getElementById("totalGenerationsCount").innerText = savedLessons.length;
 
-    const rows =
-        document.querySelectorAll("#historyTable tbody tr");
+            // Count unique subjects
+            const uniqueSubjects = [...new Set(savedLessons.map(lesson => lesson.subject))];
+            document.getElementById("totalSubjectsCount").innerText = uniqueSubjects.length;
 
-    let found = 0;
+            // Render Table
+            const tableBody = document.getElementById("historyTableBody");
+            const noHistoryMessage = document.getElementById("noHistory");
+            const historyTable = document.getElementById("historyTable");
 
-    rows.forEach(function(row) {
+            if (savedLessons.length === 0) {
+                // New account: Hide the table, show the empty message
+                historyTable.style.display = "none";
+                noHistoryMessage.style.display = "block";
+                noHistoryMessage.innerHTML = `
+                    <div>📂</div>
+                    <h3>No history yet</h3>
+                    <p>You haven't generated any lesson notes. Click "Create New Lesson Note" to get started!</p>
+                `;
+            } else {
+                // Has history: Show the table, hide the empty message
+                historyTable.style.display = "table";
+                noHistoryMessage.style.display = "none";
 
-        const text =
-            row.innerText.toLowerCase();
+                savedLessons.forEach(function (lesson) {
+                    const row = document.createElement("tr");
+                    
+                    row.innerHTML = `
+                        <td><strong>${lesson.subject}</strong></td>
+                        <td>${lesson.topic}</td>
+                        <td>${lesson.className}</td>
+                        <td>${lesson.date || "Just now"}</td>
+                        <td><span class="status">Generated</span></td>
+                        <td><a href="lesson-viewer.html" class="view-btn">View</a></td>
+                    `;
+                    
+                    tableBody.appendChild(row);
+                });
+            }
+        });
 
-        if (text.includes(input)) {
+        // 2. Search Function
+        function searchHistory() {
+            const input = document.getElementById("searchHistory").value.toLowerCase();
+            const rows = document.querySelectorAll("#historyTable tbody tr");
+            let found = 0;
 
-            row.style.display = "";
-            found++;
+            rows.forEach(function(row) {
+                const text = row.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    row.style.display = "";
+                    found++;
+                } else {
+                    row.style.display = "none";
+                }
+            });
 
-        } else {
+            const noHistoryMessage = document.getElementById("noHistory");
+            const historyTable = document.getElementById("historyTable");
 
-            row.style.display = "none";
-
+            // Only show "No results" if searching and not finding, but keep table visible if data exists
+            if (found === 0 && rows.length > 0) {
+                historyTable.style.display = "none";
+                noHistoryMessage.style.display = "block";
+                noHistoryMessage.innerHTML = `
+                    <div>🔍</div>
+                    <h3>No results found</h3>
+                    <p>Try searching for a different subject or topic.</p>
+                `;
+            } else if (rows.length > 0) {
+                historyTable.style.display = "table";
+                noHistoryMessage.style.display = "none";
+            }
         }
-
-    });
-
-    document.getElementById("noHistory").style.display =
-        found === 0 ? "block" : "none";
-}
+    </script>
 
 </body>
 </html>

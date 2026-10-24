@@ -11,55 +11,45 @@
 
 <body>
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
+   <aside class="sidebar">
+    <div class="logo">
+        Lesson<span>AI</span>
+    </div>
 
-        <div class="logo">
-            🌈 <span>LessonAI</span>
-        </div>
-
-        <nav>
-
-            <a href="homepage.html" class="nav-link">
-                🏠 <span>Dashboard</span>
-            </a>
-            <a href="quiz-generator.html" class="nav-link">
-    📝 <span>Quiz & Test</span>
-</a>
- <a href="scheme-generator.html" class="nav-link">
-                📖 <span>Scheme of Work</span>
-            </a>
-
-            <a href="lesson-generator.html" class="nav-link active">
-                ✨ <span>Generate Lesson</span>
-            </a>
-            <a href="lesson-plan-generator.html" class="nav-link">
-    📚 <span>Lesson Plan</span>
-</a>
-            <a href="my-lessons.html" class="nav-link">
-                📄 <span>My Lesson Notes</span>
-            </a>
-
-            <a href="history.html" class="nav-link">
-                🕘 <span>History</span>
-            </a>
-
-                <a href="pricing.html" class="nav-link active">
-                    💰 <span>Pricing</span>
-                </a>
-
-            <a href="settings.html" class="nav-link">
-                ⚙️ <span>Settings</span>
-            </a>
-
-        </nav>
-
-        <a href="login.html" class="logout">
-            🚪 <span>Logout</span>
+    <nav class="navigation">
+        <a href="homepage.html" class="nav-link">
+            🏠 <span>Dashboard</span>
         </a>
+        <a href="lesson-generator.html" class="nav-link active">
+            📝 <span>Lesson Generator</span>
+        </a>
+        <a href="lesson-plan-generator.html" class="nav-link">
+            📚 <span>Lesson Plan</span>
+        </a>
+        <a href="quiz-generator.html" class="nav-link">
+            ❓ <span>Quiz & Test</span>
+        </a>
+        <a href="scheme-generator.html" class="nav-link">
+            📅 <span>Scheme of Work</span>
+        </a>
+        <a href="my-lessons.html" class="nav-link">
+            📖 <span>My Lessons</span>
+        </a>
+        <a href="history.html" class="nav-link">
+            🕘 <span>History</span>
+        </a>
+        <a href="pricing.html" class="nav-link">
+            💰 <span>Pricing</span>
+        </a>
+        <a href="settings.html" class="nav-link">
+            ⚙️ <span>Settings</span>
+        </a>
+    </nav>
 
-    </aside>
-
+    <button class="logout-btn" onclick="window.location.href='login.html'">
+        🚪 Logout
+    </button>
+</aside>
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
@@ -420,6 +410,26 @@
                 const finalInstructions =
                     instructions ||
                     `Use simple explanations, examples and classroom activities suitable for ${className}.`;
+
+
+                /* --- NEW CODE: SAVE TO LOCALSTORAGE --- */
+                let savedLessons = JSON.parse(localStorage.getItem("lessonAILessons")) || [];
+                
+                const today = new Date();
+                const dateString = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+                const newLesson = {
+                    subject: subject,
+                    className: className,
+                    topic: topic,
+                    term: term,
+                    duration: duration,
+                    date: dateString
+                };
+
+                savedLessons.unshift(newLesson); // Adds to the top of the list
+                localStorage.setItem("lessonAILessons", JSON.stringify(savedLessons));
+                /* -------------------------------------- */
 
 
                 /* DISPLAY LESSON */
